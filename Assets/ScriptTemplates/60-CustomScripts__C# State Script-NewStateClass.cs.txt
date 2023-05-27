@@ -1,0 +1,26 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using StateMachine;
+
+public class #SCRIPTNAME# : State
+{
+    public #SCRIPTNAME#(FightStateMachine machine) : base(machine)
+    {
+    }
+
+    protected override void OnEnter()
+    {
+        
+    }
+
+    protected override void OnUpdate()
+    {
+        
+    }
+
+    protected override void OnExit()
+    {
+        
+    }
+}

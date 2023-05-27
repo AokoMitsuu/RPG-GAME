@@ -1,0 +1,972 @@
+fileFormatVersion: 2
+guid: 1e2833dbf4fdc3b478f8d4c7dad31d40
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Battle_Background_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 937
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2a46e712326949499d50191672a78eb
+      internalID: 263873048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_1
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 937
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a82588b39f42cdd48b4a923a9c5497f4
+      internalID: 1695838098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_2
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 937
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ede60d952d6d8b04e9463a841a47acf2
+      internalID: 952359411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_3
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 937
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf621b6513ce6f84c89e28ec2116206f
+      internalID: 122895939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_4
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 937
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a3277305791238408f50944ad452a67
+      internalID: -683567634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_5
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 804
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7f6129d721759c4987e0e218cdc15a6
+      internalID: -595215632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_6
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 804
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c44cded1d7f144840b33969890d9e790
+      internalID: 1722531312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_7
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 804
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5686d0b3eb5549942a8f0267520fea73
+      internalID: 481432408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_8
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 804
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f388d3bbdf981a544bdc668c481334fa
+      internalID: 1001285342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_9
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 804
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36c6649ca33dff24795a74ad5497859b
+      internalID: 1374094195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_10
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 671
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f68cfb26b53aef842b59a2574514760b
+      internalID: 1289672438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_11
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 671
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 738ad83eda3c4d040a49f2fefcb5194b
+      internalID: 1821581433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_12
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 671
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dbb0a3b14b8d464ab3ba0e18cd3214f
+      internalID: -1862141961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_13
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 671
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 923699fbb8354f64ea9f65705b338fc2
+      internalID: 863928253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_14
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 671
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 568b5eb3dcdcfab478a9849ff7d44ae8
+      internalID: -1695257024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_15
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 538
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34b7be00030af7b4e8a9e4e21ccfc109
+      internalID: 477465824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_16
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 538
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 923a7a97bb532a540a42fcae36b2f274
+      internalID: 1765508125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_17
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 538
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9acc39c47a80d514b899d2c3c1168230
+      internalID: -1737094639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_18
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 538
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f43daa6371894b4a8417d7b2b00b77e
+      internalID: -752549445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_19
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 538
+        width: 242
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82eba9be634f694bbdf7d23ec8dccdd
+      internalID: -1521493884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_20
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 405
+        width: 241
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1379e8ae0639494fb8214bebc375af1
+      internalID: 754974652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_21
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 405
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b835a487dd4c5ba4fb0f4c7037b89609
+      internalID: -1406275742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_22
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 405
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f080b2fe35d6614c8a930a0e26cc0f2
+      internalID: -1521499923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_23
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 405
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e86893289065274687dd9e05d38002c
+      internalID: -1377600633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_24
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 405
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b41a323733ec60d4ea27ad36122a651c
+      internalID: -234284709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_25
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 271
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 333fb453a9ea3c546b00599e494093a1
+      internalID: 1820397191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_26
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 271
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 755bd6d62d7dbc140bf44cb0194f381e
+      internalID: 166175168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_27
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 271
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b35983bf6435640b2b36a106bc74fb
+      internalID: 1590782198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_28
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 271
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a9e09acadc9c6f4985ad96b7a096752
+      internalID: 146893299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_29
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 271
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9749d92d965a2af41a98f01d42b99e55
+      internalID: -1383499651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_30
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 138
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 298194d0675ef0d49bf139d8e6add9fa
+      internalID: -1175941825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_31
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 138
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38f88ced6eda9b748b67b9ca34be67f0
+      internalID: -1129167694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_32
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 138
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e2f499ef7f63184f84b2a5b53431e36
+      internalID: -6129825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_33
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 138
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dde76bb79ca25904b8ac892227018df1
+      internalID: 1933342733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_34
+      rect:
+        serializedVersion: 2
+        x: 985
+        y: 138
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7542144ed01c2c24eab645291a3ca224
+      internalID: -2733151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_35
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 5
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c347d5c665d75bd43bcb7171a08368ea
+      internalID: 698014247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_36
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 5
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a5f2de75788d44488e78bd42d2b1964
+      internalID: 344945818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Background_37
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 5
+        width: 240
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c9c3952d689aa14c97f76bef57a68d2
+      internalID: 59271296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Battle_Background_3: 122895939
+      Battle_Background_8: 1001285342
+      Battle_Background_1: 1695838098
+      Battle_Background_35: 698014247
+      Battle_Background_11: 1821581433
+      Battle_Background_32: -6129825
+      Battle_Background_33: 1933342733
+      Battle_Background_7: 481432408
+      Battle_Background_12: -1862141961
+      Battle_Background_36: 344945818
+      Battle_Background_38: -2088167243
+      Battle_Background_20: 754974652
+      Battle_Background_24: -234284709
+      Battle_Background_30: -1175941825
+      Battle_Background_13: 863928253
+      Battle_Background_23: -1377600633
+      Battle_Background_28: 146893299
+      Battle_Background_34: -2733151
+      Battle_Background_18: -752549445
+      Battle_Background_4: -683567634
+      Battle_Background_16: 1765508125
+      Battle_Background_19: -1521493884
+      Battle_Background_25: 1820397191
+      Battle_Background_5: -595215632
+      Battle_Background_21: -1406275742
+      Battle_Background_27: 1590782198
+      Battle_Background_0: 263873048
+      Battle_Background_9: 1374094195
+      Battle_Background_14: -1695257024
+      Battle_Background_17: -1737094639
+      Battle_Background_26: 166175168
+      Battle_Background_31: -1129167694
+      Battle_Background_37: 59271296
+      Battle_Background_6: 1722531312
+      Battle_Background_15: 477465824
+      Battle_Background_22: -1521499923
+      Battle_Background_29: -1383499651
+      Battle_Background_10: 1289672438
+      Battle_Background_2: 952359411
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

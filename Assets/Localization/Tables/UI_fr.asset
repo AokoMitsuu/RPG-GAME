@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI_fr
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: fr
+  m_SharedData: {fileID: 11400000, guid: a06605f7f2469cb46807c552a6cec1f9, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 41551822848
+    m_Localized: Continuer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 389062492160
+    m_Localized: Nouvelle Partie
+    m_Metadata:
+      m_Items: []
+  - m_Id: 464039870464
+    m_Localized: Attaque
+    m_Metadata:
+      m_Items: []
+  - m_Id: 526769881088
+    m_Localized: Objets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1668975329280
+    m_Localized: Charge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1630924603392
+    m_Localized: PV
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1646435139584
+    m_Localized: PM
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2021322031104
+    m_Localized: Techniques
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2419676053504
+    m_Localized: Fuite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28489443868672
+    m_Localized: Charger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28549976064000
+    m_Localized: Menu Principal
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

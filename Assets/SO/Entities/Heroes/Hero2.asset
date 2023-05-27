@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ec5548a5fbe9aa46ae99781b75fc294, type: 3}
+  m_Name: Hero2
+  m_EditorClassIdentifier: 
+  _name:
+    m_TableReference:
+      m_TableCollectionName: GUID:01a7f2a77db45584a8f3f645fce7d350
+    m_TableEntryReference:
+      m_KeyId: 77954187264
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _fightSprite: {fileID: -548525760, guid: 849e1115d21e09b49841dacc8b643f03, type: 3}
+  _animatorController: {fileID: 9100000, guid: 30bb65c8ad485654d988226a6e49396e, type: 2}
+  _stats:
+    _baseAttack: 40
+    _baseDefense: 40
+    _baseSpeed: 35
+    _baseLifePoints: 55
+    _baseManaPoints: 55
+    XPNeeded:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _xpNeeded:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  references:
+    version: 2
+    RefIds: []

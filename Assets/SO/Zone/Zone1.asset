@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 049e15a70f2daa4468a9ce577d3cb033, type: 3}
+  m_Name: Zone1
+  m_EditorClassIdentifier: 
+  _background: {fileID: 263873048, guid: 1e2833dbf4fdc3b478f8d4c7dad31d40, type: 3}
+  _rate: 25
+  _enemyDataZones:
+  - EnemyGroup: {fileID: 11400000, guid: 3f4951392d63b664dac94177861d763e, type: 2}
+    Rate: 100
+  - EnemyGroup: {fileID: 11400000, guid: 75e8dc7e9ec7e1747b9f165e12361aaf, type: 2}
+    Rate: 0
+  _enemyTotalRates: 100

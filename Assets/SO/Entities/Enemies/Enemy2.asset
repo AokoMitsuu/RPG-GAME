@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5384a2036e68ef24cb20c9e224287dce, type: 3}
+  m_Name: Enemy2
+  m_EditorClassIdentifier: 
+  _name: Enemy2
+  _sprite: {fileID: -313146876, guid: aaeacffdea2d5f145b8213fad4b7e45e, type: 3}
+  _stats:
+    _baseAttack: 40
+    _baseDefense: 40
+    _baseSpeed: 35
+    _baseLifePoints: 55
+    _baseManaPoints: 55
+    XPNeeded:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    _xpNeeded:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
