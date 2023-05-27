@@ -32,7 +32,13 @@ public class ZoneSo : ScriptableObject
     {
         public EnemyGroupSo EnemyGroup;
         public int Rate;
+        public FightTransition FightTransition;
     }
 
-    
+    [Serializable]
+    public struct FightTransition
+    {
+        public Material Material;
+        public float Duration;
+    }
 }

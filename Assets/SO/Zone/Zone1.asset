@@ -17,6 +17,7 @@ MonoBehaviour:
   _enemyDataZones:
   - EnemyGroup: {fileID: 11400000, guid: 3f4951392d63b664dac94177861d763e, type: 2}
     Rate: 100
-  - EnemyGroup: {fileID: 11400000, guid: 75e8dc7e9ec7e1747b9f165e12361aaf, type: 2}
-    Rate: 0
+    FightTransition:
+      Material: {fileID: 2100000, guid: 7b9236149ebc53f44b03c7e97adafcb7, type: 2}
+      Duration: 1
   _enemyTotalRates: 100

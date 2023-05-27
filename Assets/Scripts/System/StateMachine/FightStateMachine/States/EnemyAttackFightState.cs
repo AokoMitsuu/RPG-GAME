@@ -11,7 +11,11 @@ public class EnemyAttackFightState : State
 
     protected override void OnEnter()
     {
-        _machine.GetBlackboardVariable<HeroClass>("heroTarget").TakeDamage(_machine.GetBlackboardVariable<EnemyClass>("enemyAction").GetEnemyAttack());
+        int damage = Mathf.Max(1, _machine.GetBlackboardVariable<EnemyClass>("enemyAction").GetEnemyAttack() - _machine.GetBlackboardVariable<HeroClass>("heroTarget").GetHeroDefense());
+        
+        AppManager.Instance.FightManager.InstantiateDamagePopups(damage, _machine.GetBlackboardVariable<HeroClass>("heroTarget").GO.transform.position);
+        
+        _machine.GetBlackboardVariable<HeroClass>("heroTarget").TakeDamage(damage);
         
         if (_machine.GetBlackboardVariable<List<HeroClass>>("heroes").Count > 0)
         {

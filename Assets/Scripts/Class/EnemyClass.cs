@@ -15,6 +15,7 @@ public class EnemyClass
     
     private int _currentLifePoint;
     private int _currentManaPoint;
+    public int level => _level;
     private int _level;
     
     private EnemySo _enemySo;
@@ -37,6 +38,11 @@ public class EnemyClass
     public int GetEnemyAttack()
     {
         return _enemySo.Stats.GetAttack(_level);
+    }
+    
+    public int GetEnemyDefense()
+    {
+        return _enemySo.Stats.GetDeffense(_level);
     }
     
     public int GetEnemySpeed()

@@ -21,6 +21,8 @@ public class FightManager : MonoBehaviour
     [SerializeField] private GameObject _itemToUseGameObject;
     [SerializeField] private GameObject _backgroundObjectsPanel;
     [SerializeField] private HeroFightUI[] _heroesFightUI;
+    [SerializeField] private FightTransition _fightTransition;
+    [SerializeField] private GameObject _damageFightPopups;
 
     private List<HeroClass> _heroes;
     private List<HeroClass> _heroesDead;
@@ -54,7 +56,19 @@ public class FightManager : MonoBehaviour
         _fightStateMachine.UpdateMachine();
     }
 
-    public void StartFight(Sprite background, List<HeroClass> heroes, ZoneSo.EnemyDataZone enemyDataZone)
+    public void EnemyEncounter(Sprite background, List<HeroClass> heroes, ZoneSo.EnemyDataZone enemyDataZone)
+    {
+        System.Action midCallback = () =>
+        {
+            SetupFight(background, heroes, enemyDataZone);
+        };
+        System.Action endCallback = () =>
+        {
+            StartFight();
+        };
+        _fightTransition.StartTransition(enemyDataZone.FightTransition.Material, enemyDataZone.FightTransition.Duration, midCallback, endCallback);
+    }
+    public void SetupFight(Sprite background, List<HeroClass> heroes, ZoneSo.EnemyDataZone enemyDataZone)
     {
         _heroes.Clear();
         _heroesDead.Clear();
@@ -101,7 +115,8 @@ public class FightManager : MonoBehaviour
                 _enemiesImage[i].color = new Color(1, 1, 1, 1);
                 _enemiesImage[i].sprite = enemyDataZone.EnemyGroup.Enemy[i].Enemy.Sprite;
                 
-                EnemyClass enemyTmp = new EnemyClass(enemyDataZone.EnemyGroup.Enemy[i].Enemy,10, _enemiesImage[i]);
+                EnemyClass enemyTmp = new EnemyClass(enemyDataZone.EnemyGroup.Enemy[i].Enemy,Random.Range(enemyDataZone.EnemyGroup.Enemy[i].MinLevel, enemyDataZone.EnemyGroup.Enemy[i].MaxLevel), _enemiesImage[i]);
+
                 enemyTmp.OnDeath += UpdateEnemyOnDeath;
                 _enemies.Add(enemyTmp);
                 enemyTmp.GO.GetComponent<EnemyFightUI>().SetEnemyClass(enemyTmp);
@@ -136,7 +151,10 @@ public class FightManager : MonoBehaviour
         _fightStateMachine.SetBlackboardVariable("itemToUseGameObject", _itemToUseGameObject);
         
         _fightStateMachine.SetBlackboardVariable("Charge",maxSpeed);
-        
+    }
+
+    public void StartFight()
+    {
         _fightStateMachine.SwitchState(_fightStateMachine.ChargingFightState);
     }
 
@@ -208,6 +226,12 @@ public class FightManager : MonoBehaviour
     {
         _heroesDead.Remove(hero);
         _heroes.Add(hero);
+    }
+
+    public void InstantiateDamagePopups(int damage, Vector3 position)
+    {
+        GameObject damagePopupsTmp = Instantiate(_damageFightPopups, _fightUIGameObject.transform);
+        damagePopupsTmp.GetComponent<DamageFightPopups>().Init(damage, position);
     }
     
     private void UpdateEnemyOnDeath(EnemyClass enemyClass)
