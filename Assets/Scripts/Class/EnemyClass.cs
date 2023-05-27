@@ -70,5 +70,9 @@ public class EnemyClass
         {
             OnDeath?.Invoke(this);
         }
+        else
+        {
+            AppManager.Instance.FightManager.ShakeEntity(GO, 1, 12, 12);
+        }
     }
 }

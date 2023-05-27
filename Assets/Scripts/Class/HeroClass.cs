@@ -143,6 +143,10 @@ public class HeroClass
         {
             OnDeath?.Invoke(this);
         }
+        else
+        {
+            AppManager.Instance.FightManager.ShakeEntity(GO, 1, 12, 12);
+        }
     }
 
     public void Heal(int heal)

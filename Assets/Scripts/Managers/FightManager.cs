@@ -233,6 +233,24 @@ public class FightManager : MonoBehaviour
         GameObject damagePopupsTmp = Instantiate(_damageFightPopups, _fightUIGameObject.transform);
         damagePopupsTmp.GetComponent<DamageFightPopups>().Init(damage, position);
     }
+
+    public void ShakeEntity(GameObject entity, float duration, float speed, float amount)
+    {
+        StartCoroutine(ShakeEntityCoroutine(entity, duration, speed, amount));
+    }
+    private IEnumerator ShakeEntityCoroutine(GameObject entity, float duration, float speed, float amount)
+    {
+        float time = 0;
+        Vector3 oldPos = entity.transform.position;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            entity.transform.position = new Vector3(oldPos.x + Mathf.Sin(Time.time * speed) * amount,entity.transform.position.y,entity.transform.position.z);
+            yield return null;
+        }
+
+        entity.transform.position = oldPos;
+    }
     
     private void UpdateEnemyOnDeath(EnemyClass enemyClass)
     {
