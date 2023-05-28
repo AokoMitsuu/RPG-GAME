@@ -18,4 +18,7 @@ public class HeroSo : ScriptableObject
     
     public Stats Stats => _stats;
     [SerializeField] private Stats _stats;
+    
+    public AnimatorController BaseAttackAnimatorController => _baseAttackAnimatorController;
+    [SerializeField] private AnimatorController _baseAttackAnimatorController;
 }

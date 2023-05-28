@@ -7,13 +7,16 @@ using UnityEngine;
 public class test : MonoBehaviour
 {
     public ReviveItemSo Item;
+    public HealItemSo Item2;
     
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
             ReviveItemClass item = new ReviveItemClass(Item);
+            HealItemClass item2 = new HealItemClass(Item2);
             AppManager.Instance.PlayerManager.PlayerSo.AddItem(item);
+            AppManager.Instance.PlayerManager.PlayerSo.AddItem(item2);
             AppManager.Instance.SaveLoadManager.Save();
         }
         if (Input.GetKeyDown(KeyCode.G))

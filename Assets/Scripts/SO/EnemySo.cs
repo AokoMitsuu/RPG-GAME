@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Entities/Enemy", fileName = "Enemy")]
@@ -13,4 +14,8 @@ public class EnemySo : ScriptableObject
     
     public Stats Stats => _stats;
     [SerializeField] private Stats _stats;
+    
+    public AnimatorController BaseAttackAnimationController => _baseAttackAnimationController;
+    [SerializeField] private AnimatorController _baseAttackAnimationController;
+    
 }

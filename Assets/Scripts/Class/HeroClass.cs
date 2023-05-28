@@ -118,6 +118,11 @@ public class HeroClass
     {
         return _hero.AnimatorController;
     }
+    
+    public AnimatorController GetBaseAttackAnimatorController()
+    {
+        return _hero.BaseAttackAnimatorController;
+    }
     #endregion
 
     public bool ChargeAction(int chargeTo)

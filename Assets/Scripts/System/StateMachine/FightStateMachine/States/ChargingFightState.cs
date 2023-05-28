@@ -72,7 +72,7 @@ public class ChargingFightState : State
                 _machine.SetBlackboardVariable("heroTarget", _heroTarget);
                 _machine.SetBlackboardVariable("enemyAction", _enemyAction);
                 _machine.SetBlackboardVariable("entityToMove", _enemyActionGameObject);
-                _machine.SetBlackboardVariable("endPos", _heroTarget.GO.transform.position + new Vector3(75,0,0));
+                _machine.SetBlackboardVariable("endPos", _heroTarget.GO.transform.position + new Vector3(150,0,0));
                 _machine.SetBlackboardVariable("stateAfterMove", _machine.EnemyAttackFightState);
                 _machine.SetBlackboardVariable("enemyActionGameObjectInitialPosition", _enemyActionGameObjectInitialPosition);
                 

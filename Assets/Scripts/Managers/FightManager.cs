@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -23,6 +24,7 @@ public class FightManager : MonoBehaviour
     [SerializeField] private HeroFightUI[] _heroesFightUI;
     [SerializeField] private FightTransition _fightTransition;
     [SerializeField] private GameObject _damageFightPopups;
+    [SerializeField] private Animator _attackAnimator;
 
     private List<HeroClass> _heroes;
     private List<HeroClass> _heroesDead;
@@ -37,6 +39,8 @@ public class FightManager : MonoBehaviour
     private HeroClass _heroAction;
     private GameObject _heroActionGameObject;
     private Vector3 _heroActionGameObjectInitialPosition;
+
+    private FightAction _action;
 
     private FightStateMachine _fightStateMachine;
     private void Awake()
@@ -151,6 +155,8 @@ public class FightManager : MonoBehaviour
         _fightStateMachine.SetBlackboardVariable("itemToUseGameObject", _itemToUseGameObject);
         
         _fightStateMachine.SetBlackboardVariable("Charge",maxSpeed);
+        
+        _fightStateMachine.SetBlackboardVariable("attackAnimator",_attackAnimator);
     }
 
     public void StartFight()
@@ -162,9 +168,13 @@ public class FightManager : MonoBehaviour
     {
         if (_fightStateMachine.CurrentState == _fightStateMachine.SprtieMovingFightState) return;
         
-        _fightStateMachine.SetBlackboardVariable("endPos", _enemyTargetTransform.transform.position - new Vector3(100,50,0));
+        _fightStateMachine.SetBlackboardVariable("endPos", _enemyTargetTransform.transform.position - new Vector3(125,50,0));
         _fightStateMachine.SetBlackboardVariable("stateAfterMove", _fightStateMachine.HeroAttackFightState);
-                
+        
+        HeroClass heroTmp = _fightStateMachine.GetBlackboardVariable<HeroClass>("heroAction");
+        _action.SetAction(heroTmp.GetHeroAttack(), 0, 0, heroTmp.GetBaseAttackAnimatorController());
+        _fightStateMachine.SetBlackboardVariable("action", _action);
+        
         _fightStateMachine.SwitchState(_fightStateMachine.SprtieMovingFightState);
         
     }
@@ -279,5 +289,20 @@ public class FightManager : MonoBehaviour
             _fightStateMachine.SwitchState(_fightStateMachine.LostFightState);
         }
     }
-    
+}
+
+public struct FightAction
+{
+    public int Damage;
+    public int Heal;
+    public int Cost;
+    public AnimatorController AnimatorController;
+
+    public void SetAction(int damage, int heal, int cost, AnimatorController animatorController)
+    {
+        Damage = damage;
+        Heal = heal;
+        Cost = cost;
+        AnimatorController = animatorController;
+    }
 }

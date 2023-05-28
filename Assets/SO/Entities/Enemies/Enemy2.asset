@@ -32,3 +32,4 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
+  _baseAttackAnimationController: {fileID: 9100000, guid: ce9d1ecea28d7b1429926046f7e12e17, type: 2}
