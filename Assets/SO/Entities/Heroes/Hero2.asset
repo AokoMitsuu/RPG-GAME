@@ -24,7 +24,7 @@ MonoBehaviour:
   _sprite: {fileID: -548525760, guid: 849e1115d21e09b49841dacc8b643f03, type: 3}
   _stats:
     _baseAttack: 40
-    _baseDefense: 40
+    _baseDefense: 5
     _baseSpeed: 35
     _baseLifePoints: 55
     _baseManaPoints: 55

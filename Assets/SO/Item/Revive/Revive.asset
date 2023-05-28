@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Revive
   m_EditorClassIdentifier: 
   _sprite: {fileID: 1134267592, guid: 131c6a660cdcb3240918ec1cc0c2db26, type: 3}
-  _target: 3
+  _itemType: 1
+  _animatorController: {fileID: 9100000, guid: 501505066cb5b4f4b99f0fb8f5dce9ac, type: 2}
   _heal: 1

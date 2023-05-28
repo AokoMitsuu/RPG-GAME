@@ -7,8 +7,8 @@ public class FightStateMachine
 {
     public State NoneFightState { get; private set; }
     public State ChargingFightState { get; private set; }
-    public State EntityAttackFightState { get; private set; }
-    public State EntityEndAttackFightState { get; private set; }
+    public State EntityActionFightState { get; private set; }
+    public State EntityEndActionFightState { get; private set; }
     public State WaitActionFightState { get; private set; }
     public State WaitTargetFightState { get; private set; }
     public State SprtieMovingFightState { get; private set; }
@@ -32,8 +32,8 @@ public class FightStateMachine
         
         ChargingFightState = new ChargingFightState(this);
 
-        EntityAttackFightState = new EntityAttackFightState(this);
-        EntityEndAttackFightState = new EntityEndAttackFightState(this);
+        EntityActionFightState = new EntityActionFightState(this);
+        EntityEndActionFightState = new EntityEndActionFightState(this);
         
         WaitActionFightState = new WaitActionFightState(this);
         WaitTargetFightState = new WaitTargetFightState(this);

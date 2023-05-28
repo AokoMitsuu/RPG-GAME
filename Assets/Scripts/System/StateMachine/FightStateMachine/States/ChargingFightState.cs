@@ -78,9 +78,11 @@ public class ChargingFightState : State
                 _fightAction.EntityToMove = _enemyActionGameObject;
                 _fightAction.TargetPos = _heroTarget.GO.transform.position + new Vector3(150,0,0);
                 _fightAction.EntityInitalPos = _enemyActionGameObjectInitialPosition;
+                _fightAction.AnimatorController = _enemyAction.GetBaseAttackAnimatorController();
                 _fightAction.Damage = _enemyAction.GetAttack();
+                _fightAction.FightActionType = FightActionType.Attack;
                 
-                _machine.SetBlackboardVariable("stateAfterMove", _machine.EntityAttackFightState);
+                _machine.SetBlackboardVariable("stateAfterMove", _machine.EntityActionFightState);
                 _machine.SetBlackboardVariable("fightAction", _fightAction);
                 _machine.SwitchState(_machine.SprtieMovingFightState);
                 return;

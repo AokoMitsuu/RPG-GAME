@@ -15,17 +15,20 @@ public class test : MonoBehaviour
         {
             ReviveItemClass item = new ReviveItemClass(Item);
             HealItemClass item2 = new HealItemClass(Item2);
+            
             AppManager.Instance.PlayerManager.PlayerSo.AddItem(item);
             AppManager.Instance.PlayerManager.PlayerSo.AddItem(item2);
-            AppManager.Instance.SaveLoadManager.Save();
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Debug.Log(AppManager.Instance.PlayerManager.PlayerSo.Inventory.Count);
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
             Debug.Log(AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam[1].CurrentLifePoint);
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            foreach (var VARIABLE in AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam)
+            {
+                VARIABLE.AddXp(217);
+            }
         }
     }
 }

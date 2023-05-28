@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using StateMachine;
 
-public class EntityEndAttackFightState : State
+public class EntityEndActionFightState : State
 {
-    public EntityEndAttackFightState(FightStateMachine machine) : base(machine)
+    public EntityEndActionFightState(FightStateMachine machine) : base(machine)
     {
     }
 

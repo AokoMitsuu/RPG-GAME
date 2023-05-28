@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class HealItemClass : ItemClass
 {
     public int Heal => _heal;
@@ -15,7 +17,7 @@ public class HealItemClass : ItemClass
     public override void UseEffect(HeroClass hero)
     {
         hero.Heal(_heal);
-        
+        AppManager.Instance.PlayerManager.PlayerSo.RemoveItem(this);
         base.UseEffect(hero);
     }
 }

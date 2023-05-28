@@ -16,6 +16,7 @@ public class FightAction
     public Vector3 EntityInitalPos;
     public Vector3 TargetPos;
     public FightActionType FightActionType;
+    public ItemClass Item;
 }
 
 public enum FightActionType{

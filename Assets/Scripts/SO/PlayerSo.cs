@@ -10,8 +10,11 @@ public class PlayerSo : ScriptableObject
     public List<HeroClass> HeroesTeam => _heroesTeam;
     [SerializeField] private List<HeroClass> _heroesTeam;
     
-    public List<ItemClass> Inventory => _inventory;
-    [SerializeField] private List<ItemClass> _inventory;
+    public List<HealItemClass> HealInventory => _healInventory;
+    [SerializeField] private List<HealItemClass> _healInventory;
+    
+    public List<ReviveItemClass> ReviveInventory => _reviveInInventory;
+    [SerializeField] private List<ReviveItemClass> _reviveInInventory;
     
     public Vector3 LastPosition => _lastPosition;
     [SerializeField] private Vector3 _lastPosition;
@@ -34,9 +37,24 @@ public class PlayerSo : ScriptableObject
             hero.Load();
         }
     }
-    public void AddItem(ItemClass item)
+    public void AddItem(HealItemClass item)
     {
-        _inventory.Add(item);
+        _healInventory.Add(item);
+    }
+    
+    public void AddItem(ReviveItemClass item)
+    {
+        _reviveInInventory.Add(item);
+    }
+    
+    public void RemoveItem(HealItemClass item)
+    {
+        _healInventory.Remove(item);
+    }
+    
+    public void RemoveItem(ReviveItemClass item)
+    {
+        _reviveInInventory.Remove(item);
     }
 
     public void SetLastPosition(Vector3 lastPosition)
