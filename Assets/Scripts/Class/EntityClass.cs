@@ -11,10 +11,10 @@ public class EntityClass
     public RectTransform RectTransform;
     public EntityFightUI EntityFightUI;
     
-    protected int _currentLifePoint;
-    protected int _currentManaPoint;
+    [SerializeField] protected int _currentLifePoint;
+    [SerializeField] protected int _currentManaPoint;
     public int level => _level;
-    protected int _level;
+    [SerializeField] protected int _level;
     
     protected EntitySO _entity;
     protected float _chargeAction;

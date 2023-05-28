@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
         {
             AppManager.Instance.PlayerManager.SpawnPlayerAndAttachCamera(_mapTransition.Position);
             _mapTransition.SaveLocation();
+            AppManager.Instance.SaveLoadManager.Save();
         };
         
         AppManager.Instance.SceneAppManager.SwitchScene(_mapTransition.SceneName, _mapTransition.FadeDuration, callback);
