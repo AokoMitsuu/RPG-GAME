@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using StateMachine;
 
-public class HeroEndAttackFightState : State
+public class EntityEndAttackFightState : State
 {
-    public HeroEndAttackFightState(FightStateMachine machine) : base(machine)
+    public EntityEndAttackFightState(FightStateMachine machine) : base(machine)
     {
     }
 
     protected override void OnEnter()
     {
-        _machine.GetBlackboardVariable<HeroClass>("heroAction").ResetCharge();
-        _machine.SetBlackboardVariable("heroAction",null);
+        FightAction _fightAction = _machine.GetBlackboardVariable<FightAction>("fightAction");
+        
+        _fightAction.EntityAction.ResetCharge();
+        _fightAction.EntityAction = null;
         _machine.GetBlackboardVariable<GameObject>("actionBox").SetActive(false);
         
+        _machine.SetBlackboardVariable("fightAction", _fightAction);
         _machine.SwitchState(_machine.ChargingFightState);
     }
 

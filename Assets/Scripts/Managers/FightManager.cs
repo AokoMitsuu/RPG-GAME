@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +13,6 @@ public class FightManager : MonoBehaviour
     [SerializeField] private Image _fightBackground;
     [SerializeField] private Image[] _heroesImage;
     [SerializeField] private Image[] _enemiesImage;
-    [SerializeField] private RectTransform _enemyTargetTransform;
     [SerializeField] private FightPlayerPreview[] _fightPlayerPreview;
     [SerializeField] private FightPlayerPreview _fightPlayerAction;
     [SerializeField] private GameObject _actionBox;
@@ -21,46 +21,33 @@ public class FightManager : MonoBehaviour
     [SerializeField] private GridLayoutGroup _itemGridLayout;
     [SerializeField] private GameObject _itemToUseGameObject;
     [SerializeField] private GameObject _backgroundObjectsPanel;
-    [SerializeField] private HeroFightUI[] _heroesFightUI;
+    [SerializeField] private EntityFightUI[] _heroesFightUI;
+    [SerializeField] private EntityFightUI[] _enemiesFightUI;
     [SerializeField] private FightTransition _fightTransition;
     [SerializeField] private GameObject _damageFightPopups;
     [SerializeField] private Animator _attackAnimator;
+    [SerializeField] private float _chargeMaxSeconds;
 
-    private List<HeroClass> _heroes;
-    private List<HeroClass> _heroesDead;
-    private List<EnemyClass> _enemies;
+    private List<EntityClass> _heroes;
+    private List<EntityClass> _heroesDead;
+    private List<EntityClass> _enemies;
 
-    private EnemyClass _enemyTarget;
-    private EnemyClass _enemyAction;
-    private GameObject _enemyActionGameObject;
-    private Vector3 _enemyActionGameObjectInitialPosition;
-    
-    private HeroClass _heroTarget;
-    private HeroClass _heroAction;
-    private GameObject _heroActionGameObject;
-    private Vector3 _heroActionGameObjectInitialPosition;
 
-    private FightAction _action;
+    private FightAction _fightAction;
     private int _totalXp;
 
     private FightStateMachine _fightStateMachine;
     private void Awake()
     {
-        _heroes = new List<HeroClass>();
-        _heroesDead = new List<HeroClass>();
-        _enemies = new List<EnemyClass>();
+        _heroes = new List<EntityClass>();
+        _heroesDead = new List<EntityClass>();
+        _enemies = new List<EntityClass>();
         
-        _enemyAction = null;
-        _heroAction = null;
-
+        _fightAction = new FightAction();
+        
         _fightStateMachine = new FightStateMachine();
     }
-
-    private void Update()
-    {
-        _fightStateMachine.UpdateMachine();
-    }
-
+    
     public void EnemyEncounter(Sprite background, List<HeroClass> heroes, ZoneSo.EnemyDataZone enemyDataZone)
     {
         System.Action midCallback = () =>
@@ -73,14 +60,16 @@ public class FightManager : MonoBehaviour
         };
         _fightTransition.StartTransition(enemyDataZone.FightTransition.Material, enemyDataZone.FightTransition.Duration, midCallback, endCallback);
     }
+    
     public void SetupFight(Sprite background, List<HeroClass> heroes, ZoneSo.EnemyDataZone enemyDataZone)
     {
         _heroes.Clear();
         _heroesDead.Clear();
         _enemies.Clear();
-
+        
+        _fightAction = new FightAction();
+        
         _totalXp = 0;
-        _enemyTarget = null;
         
         _fightBackground.sprite = background;
 
@@ -91,7 +80,7 @@ public class FightManager : MonoBehaviour
             if (i < heroes.Count)
             {
                 _heroesImage[i].gameObject.SetActive(true);
-                _heroesImage[i].sprite = heroes[i].GetHeroSprite();
+                _heroesImage[i].sprite = heroes[i].GetSprite();
                 heroes[i].SetObject(_heroesImage[i], _heroesFightUI[i]); 
                 heroes[i].OnDeath += UpdateHeroOnDeath;
                 
@@ -104,8 +93,8 @@ public class FightManager : MonoBehaviour
                 _fightPlayerPreview[i].InitPlayerPreview(heroes[i]);
                 heroes[i].ResetCharge();
 
-                if (maxSpeed < heroes[i].GetHeroSpeed())
-                    maxSpeed = heroes[i].GetHeroSpeed();
+                if (maxSpeed < heroes[i].GetSpeed())
+                    maxSpeed = heroes[i].GetSpeed();
             }
             else
             {
@@ -122,27 +111,20 @@ public class FightManager : MonoBehaviour
                 _enemiesImage[i].sprite = enemyDataZone.EnemyGroup.Enemy[i].Enemy.Sprite;
                 
                 EnemyClass enemyTmp = new EnemyClass(enemyDataZone.EnemyGroup.Enemy[i].Enemy,Random.Range(enemyDataZone.EnemyGroup.Enemy[i].MinLevel, enemyDataZone.EnemyGroup.Enemy[i].MaxLevel), _enemiesImage[i]);
-
+                enemyTmp.EntityFightUI = _enemiesFightUI[i];
+                _enemiesFightUI[i].Init(enemyTmp);
+                
                 enemyTmp.OnDeath += UpdateEnemyOnDeath;
                 _enemies.Add(enemyTmp);
-                enemyTmp.GO.GetComponent<EnemyFightUI>().SetEnemyClass(enemyTmp);
                 
-                if (_enemyTarget == null)
-                {
-                    SetEnemyTarget(enemyTmp, _enemiesImage[i].GetComponent<RectTransform>());
-                }
-                
-                if (maxSpeed < enemyTmp.GetEnemySpeed())
-                    maxSpeed = enemyTmp.GetEnemySpeed();
+                if (maxSpeed < enemyTmp.GetSpeed())
+                    maxSpeed = enemyTmp.GetSpeed();
             }
             else
-            { 
-                _enemiesImage[i].gameObject.GetComponent<EnemyFightUI>().SetEnemyClass(null);
+            {
                 _enemiesImage[i].color = new Color(1, 1, 1, 0);
             }
         }
-
-        UpdateObjectPanel();
         
         _fightUIGameObject.SetActive(true);
         
@@ -156,83 +138,46 @@ public class FightManager : MonoBehaviour
 
         _fightStateMachine.SetBlackboardVariable("itemToUseGameObject", _itemToUseGameObject);
         
-        _fightStateMachine.SetBlackboardVariable("Charge",maxSpeed);
+        _fightStateMachine.SetBlackboardVariable("charge",maxSpeed);
+        _fightStateMachine.SetBlackboardVariable("chargeMaxSecond",_chargeMaxSeconds);
         
         _fightStateMachine.SetBlackboardVariable("attackAnimator",_attackAnimator);
+        
+        _fightStateMachine.SetBlackboardVariable("fightAction",_fightAction);
     }
 
     public void StartFight()
     {
         _fightStateMachine.SwitchState(_fightStateMachine.ChargingFightState);
     }
-
-    public void HeroAttack()
+    
+    private void Update()
     {
-        if (_fightStateMachine.CurrentState == _fightStateMachine.SprtieMovingFightState) return;
-        
-        _fightStateMachine.SetBlackboardVariable("endPos", _enemyTargetTransform.transform.position - new Vector3(125,50,0));
-        _fightStateMachine.SetBlackboardVariable("stateAfterMove", _fightStateMachine.HeroAttackFightState);
-        
-        HeroClass heroTmp = _fightStateMachine.GetBlackboardVariable<HeroClass>("heroAction");
-        _action.SetAction(heroTmp.GetHeroAttack(), 0, 0, heroTmp.GetBaseAttackAnimatorController());
-        Debug.Log(_action.Damage);
-        _fightStateMachine.SetBlackboardVariable("action", _action);
-        
-        _fightStateMachine.SwitchState(_fightStateMachine.SprtieMovingFightState);
-        
-    }
-    public void SetEnemyTarget(EnemyClass enemyTarget, RectTransform enemyGameObject)
-    {
-        _enemyTarget = enemyTarget;
-        _enemyTargetTransform.SetParent(enemyGameObject, false);
-        _enemyTargetTransform.localScale = new Vector3(1, 1, 1);
-        _fightStateMachine.SetBlackboardVariable("enemyTarget", enemyTarget);
-    }
-
-    public void ItemOnClick(ItemClass item)
-    {
-        switch (item.Target)
-        {
-            case ItemTarget.ALIVEHERO:
-                _backgroundObjectsPanel.SetActive(false);
-                _fightStateMachine.SetBlackboardVariable("itemToUse", item);
-                _fightStateMachine.SwitchState(_fightStateMachine.UseItemOnAliveHeroFightState);
-                break;
-            case ItemTarget.DEADHERO:
-                _backgroundObjectsPanel.SetActive(false);
-                _fightStateMachine.SetBlackboardVariable("itemToUse", item);
-                _fightStateMachine.SwitchState(_fightStateMachine.UseItemOnDeadHeroFightState);
-                break;
-        }
-    }
-
-    public void EntitySelectForItem(HeroClass hero)
-    {
-        _fightStateMachine.GetBlackboardVariable<ItemClass>("itemToUse").UseEffect(hero);
-        UpdateObjectPanel();
-        _fightStateMachine.SwitchState(_fightStateMachine.HeroEndAttackFightState);
+        _fightStateMachine.UpdateMachine();
     }
     
-    public void EntitySelectForItem(EnemyClass enemy)
+    public void HeroAttack()
     {
-        UpdateObjectPanel();
-        _fightStateMachine.SwitchState(_fightStateMachine.EnemyAttackFightState);
+        if (_fightStateMachine.CurrentState != _fightStateMachine.WaitActionFightState) return;
+        
+        _fightStateMachine.SetBlackboardVariable("entitiesTarget", _enemies);
+        _fightStateMachine.SwitchState(_fightStateMachine.WaitTargetFightState);
     }
 
-
-    public void UpdateObjectPanel()
+    public void SelectTarget(EntityClass entity)
     {
-        foreach (Transform child in _itemContentTransform.transform)
-        {
-            Destroy(child.gameObject);
-        }
+        if (_fightStateMachine.CurrentState != _fightStateMachine.WaitTargetFightState) return;
         
-        _itemContentTransform.sizeDelta = new Vector2(_itemContentTransform.sizeDelta.x,_itemGridLayout.padding.top + _itemGridLayout.cellSize.y * AppManager.Instance.PlayerManager.PlayerSo.Inventory.Count + _itemGridLayout.spacing.y * AppManager.Instance.PlayerManager.PlayerSo.Inventory.Count);
-        foreach (ItemClass item in AppManager.Instance.PlayerManager.PlayerSo.Inventory)
-        {
-            GameObject itemTmp = Instantiate(_itemPrefab, _itemContentTransform);
-            itemTmp.GetComponent<ItemsFightButton>().Init(item);
-        }
+        _fightAction = _fightStateMachine.GetBlackboardVariable<FightAction>("fightAction");
+
+        _fightAction.TargetPos = entity.GO.transform.position - new Vector3(125, 0, 0);
+        _fightAction.Damage = _fightAction.EntityAction.GetAttack();
+        _fightAction.EntityTarget = entity;
+        
+        _fightStateMachine.SetBlackboardVariable("stateAfterMove", _fightStateMachine.EntityAttackFightState);
+        _fightStateMachine.SetBlackboardVariable("fightAction", _fightAction);
+
+        _fightStateMachine.SwitchState(_fightStateMachine.SprtieMovingFightState);
     }
 
     public void ReviveHero(HeroClass hero)
@@ -267,23 +212,16 @@ public class FightManager : MonoBehaviour
     
     private void UpdateEnemyOnDeath(EnemyClass enemyClass)
     {
-        bool changeTarget = _enemyTarget == enemyClass;
-        
         _totalXp += enemyClass.GetXpDrop();
         _fightStateMachine.SetBlackboardVariable("totalXp",_totalXp);
         
-        enemyClass.GO.GetComponent<EnemyFightUI>().SetEnemyClass(null);
         enemyClass.Image.color = new Color(1, 1, 1, 0);
         _enemies.Remove(enemyClass);
         
         if (_enemies.Count == 0)
         {
             _fightStateMachine.SwitchState(_fightStateMachine.WinFightState);
-            return;
         }
-        
-        if(changeTarget)
-            SetEnemyTarget(_enemies[0],_enemies[0].GO.GetComponent<RectTransform>());
     }
 
     private void UpdateHeroOnDeath(HeroClass heroClass)
@@ -294,21 +232,5 @@ public class FightManager : MonoBehaviour
         {
             _fightStateMachine.SwitchState(_fightStateMachine.LostFightState);
         }
-    }
-}
-
-public struct FightAction
-{
-    public int Damage;
-    public int Heal;
-    public int Cost;
-    public AnimatorController AnimatorController;
-
-    public void SetAction(int damage, int heal, int cost, AnimatorController animatorController)
-    {
-        Damage = damage;
-        Heal = heal;
-        Cost = cost;
-        AnimatorController = animatorController;
     }
 }

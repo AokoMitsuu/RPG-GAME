@@ -7,16 +7,13 @@ public class FightStateMachine
 {
     public State NoneFightState { get; private set; }
     public State ChargingFightState { get; private set; }
-    public State HeroAttackFightState { get; private set; }
-    public State EnemyAttackFightState { get; private set; }
-    public State HeroEndAttackFightState { get; private set; }
-    public State EnemyEndAttackFightState { get; private set; }
+    public State EntityAttackFightState { get; private set; }
+    public State EntityEndAttackFightState { get; private set; }
     public State WaitActionFightState { get; private set; }
+    public State WaitTargetFightState { get; private set; }
     public State SprtieMovingFightState { get; private set; }
     public State WinFightState { get; private set; }
     public State LostFightState { get; private set; }
-    public State UseItemOnAliveHeroFightState { get; private set; }
-    public State UseItemOnDeadHeroFightState { get; private set; }
 
     public State CurrentState { get; private set; }
 
@@ -35,22 +32,15 @@ public class FightStateMachine
         
         ChargingFightState = new ChargingFightState(this);
 
-        HeroAttackFightState = new HeroAttackFightState(this);
-        EnemyAttackFightState = new EnemyAttackFightState(this);
-        
-        HeroEndAttackFightState = new HeroEndAttackFightState(this);
-        EnemyEndAttackFightState = new EnemyEndAttackFightState(this);
+        EntityAttackFightState = new EntityAttackFightState(this);
+        EntityEndAttackFightState = new EntityEndAttackFightState(this);
         
         WaitActionFightState = new WaitActionFightState(this);
+        WaitTargetFightState = new WaitTargetFightState(this);
         SprtieMovingFightState = new SpriteMovingFightState(this);
         
         WinFightState = new WinFightState(this);
         LostFightState = new LostFightState(this);
-
-        UseItemOnAliveHeroFightState = new UseItemOnAliveHeroFightState(this);
-        UseItemOnDeadHeroFightState = new UseItemOnDeadHeroFightState(this);
-        
-
 
         _startingState = NoneFightState;
         SwitchState(_startingState);

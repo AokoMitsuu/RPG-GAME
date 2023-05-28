@@ -28,8 +28,8 @@ public class FightPlayerPreview : MonoBehaviour
             UpdatePreview();
             UpdateCharge(_hero.Charge);
             
-            _playerImage.sprite = _hero.GetHeroSprite();
-            _playerName.text = _hero.GetHeroName();
+            _playerImage.sprite = _hero.GetSprite();
+            _playerName.text = _hero.GetName();
             
             _hero.OnStatsChange += UpdatePreview;
             _hero.OnCharge += UpdateCharge;
@@ -50,8 +50,8 @@ public class FightPlayerPreview : MonoBehaviour
             UpdatePreview();
             
             UpdateCharge(_hero.Charge);
-            _playerImage.sprite = _hero.GetHeroSprite();
-            _playerName.text = _hero.GetHeroName();
+            _playerImage.sprite = _hero.GetSprite();
+            _playerName.text = _hero.GetName();
             
             _playerPreview.SetActive(true);
         }
@@ -60,8 +60,8 @@ public class FightPlayerPreview : MonoBehaviour
 
     private void UpdatePreview()
     {
-        _lifeBar.fillAmount = _hero.GetHeroCurrentLifePointRatio();
-        _manaBar.fillAmount = _hero.GetHeroCurrentManaPointRatio();
+        _lifeBar.fillAmount = _hero.GetCurrentLifePointRatio();
+        _manaBar.fillAmount = _hero.GetCurrentManaPointRatio();
     }
     
     private void UpdateCharge(float chargeRatio)

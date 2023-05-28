@@ -5,8 +5,8 @@ using StateMachine;
 
 public class ChargingFightState : State
 {
-    private List<HeroClass> _heroes;
-    private List<EnemyClass> _enemies;
+    private List<EntityClass> _heroes;
+    private List<EntityClass> _enemies;
     
     private GameObject _heroActionGameObject;
     private GameObject _enemyActionGameObject;
@@ -22,18 +22,21 @@ public class ChargingFightState : State
     private HeroClass _heroTarget;
 
     private int _chargeTo;
+    private FightAction _fightAction;
     public ChargingFightState(FightStateMachine machine) : base(machine)
     {
     }
 
     protected override void OnEnter()
     {
-        _heroes = _machine.GetBlackboardVariable<List<HeroClass>>("heroes");
-        _enemies = _machine.GetBlackboardVariable<List<EnemyClass>>("enemies");
+        _heroes = _machine.GetBlackboardVariable<List<EntityClass>>("heroes");
+        _enemies = _machine.GetBlackboardVariable<List<EntityClass>>("enemies");
         
         _fightPlayerAction = _machine.GetBlackboardVariable<FightPlayerPreview>("fightPlayerAction");
         
-        _chargeTo = 3 * _machine.GetBlackboardVariable<int>("Charge");
+        _chargeTo = (int)_machine.GetBlackboardVariable<float>("chargeMaxSecond") * _machine.GetBlackboardVariable<int>("charge");
+        
+        _fightAction = _machine.GetBlackboardVariable<FightAction>("fightAction");
     }
 
     protected override void OnUpdate()
@@ -43,16 +46,17 @@ public class ChargingFightState : State
             if (_heroes[i].ChargeAction(_chargeTo))
             {
                 _heroActionGameObject = _heroes[i].GO;
-                _fightPlayerAction.InitPlayerPreviewAction(_heroes[i]);
-                _heroAction = _heroes[i];
+                _fightPlayerAction.InitPlayerPreviewAction((HeroClass)_heroes[i]);
+                _heroAction = (HeroClass)_heroes[i];
                 _heroActionGameObjectInitialPosition = _heroActionGameObject.transform.position;
+
+                _fightAction.EntityAction = _heroAction;
+                _fightAction.EntityToMove = _heroActionGameObject;
+                _fightAction.TargetPos = _heroActionGameObject.transform.position + new Vector3(75, 0, 0);
+                _fightAction.EntityInitalPos = _heroActionGameObjectInitialPosition;
                 
-                _machine.SetBlackboardVariable("heroAction", _heroAction);
-                _machine.SetBlackboardVariable("entityToMove", _heroActionGameObject);
-                _machine.SetBlackboardVariable("endPos", _heroActionGameObject.transform.position + new Vector3(75,0,0));
                 _machine.SetBlackboardVariable("stateAfterMove", _machine.WaitActionFightState);
-                _machine.SetBlackboardVariable("heroActionGameObjectInitialPosition", _heroActionGameObjectInitialPosition);
-                
+                _machine.SetBlackboardVariable("fightAction", _fightAction);
                 _machine.SwitchState(_machine.SprtieMovingFightState);
                 return;
             }
@@ -64,18 +68,20 @@ public class ChargingFightState : State
             {
                 _enemyActionGameObject = _enemies[i].GO;
                 _enemyActionGameObjectInitialPosition = _enemyActionGameObject.transform.position;
-                _enemyAction = _enemies[i];
+                _enemyAction = (EnemyClass)_enemies[i];
                 
                 int randomHero = Random.Range(0, _heroes.Count);
-                _heroTarget = _heroes[randomHero];
+                _heroTarget = (HeroClass)_heroes[randomHero];
+
+                _fightAction.EntityTarget = _heroTarget;
+                _fightAction.EntityAction = _enemyAction;
+                _fightAction.EntityToMove = _enemyActionGameObject;
+                _fightAction.TargetPos = _heroTarget.GO.transform.position + new Vector3(150,0,0);
+                _fightAction.EntityInitalPos = _enemyActionGameObjectInitialPosition;
+                _fightAction.Damage = _enemyAction.GetAttack();
                 
-                _machine.SetBlackboardVariable("heroTarget", _heroTarget);
-                _machine.SetBlackboardVariable("enemyAction", _enemyAction);
-                _machine.SetBlackboardVariable("entityToMove", _enemyActionGameObject);
-                _machine.SetBlackboardVariable("endPos", _heroTarget.GO.transform.position + new Vector3(150,0,0));
-                _machine.SetBlackboardVariable("stateAfterMove", _machine.EnemyAttackFightState);
-                _machine.SetBlackboardVariable("enemyActionGameObjectInitialPosition", _enemyActionGameObjectInitialPosition);
-                
+                _machine.SetBlackboardVariable("stateAfterMove", _machine.EntityAttackFightState);
+                _machine.SetBlackboardVariable("fightAction", _fightAction);
                 _machine.SwitchState(_machine.SprtieMovingFightState);
                 return;
             }

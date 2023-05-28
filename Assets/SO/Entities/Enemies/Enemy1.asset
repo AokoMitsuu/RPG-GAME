@@ -12,7 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5384a2036e68ef24cb20c9e224287dce, type: 3}
   m_Name: Enemy1
   m_EditorClassIdentifier: 
-  _name: Enemy1
+  _name:
+    m_TableReference:
+      m_TableCollectionName: GUID:a06605f7f2469cb46807c552a6cec1f9
+    m_TableEntryReference:
+      m_KeyId: 41551822848
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _sprite: {fileID: 101866676, guid: aaeacffdea2d5f145b8213fad4b7e45e, type: 3}
   _stats:
     _baseAttack: 40
@@ -20,5 +28,8 @@ MonoBehaviour:
     _baseSpeed: 35
     _baseLifePoints: 55
     _baseManaPoints: 55
-  _xpDrop: 500
   _baseAttackAnimationController: {fileID: 9100000, guid: ce9d1ecea28d7b1429926046f7e12e17, type: 2}
+  _xpDrop: 0
+  references:
+    version: 2
+    RefIds: []

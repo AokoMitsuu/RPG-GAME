@@ -25,15 +25,15 @@ public class test : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.V))
         {
-            Debug.Log(AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam[1].GetHeroName());
+            Debug.Log(AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam[1].GetName());
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
-            Debug.Log(AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam[0].Level);
+            Debug.Log(AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam[0].level);
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            Debug.Log(AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam[0].GetHeroAttack());
+            Debug.Log(AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam[0].GetAttack());
         }
     }
 }
