@@ -41,6 +41,7 @@ public class FightManager : MonoBehaviour
     private Vector3 _heroActionGameObjectInitialPosition;
 
     private FightAction _action;
+    private int _totalXp;
 
     private FightStateMachine _fightStateMachine;
     private void Awake()
@@ -77,7 +78,8 @@ public class FightManager : MonoBehaviour
         _heroes.Clear();
         _heroesDead.Clear();
         _enemies.Clear();
-        
+
+        _totalXp = 0;
         _enemyTarget = null;
         
         _fightBackground.sprite = background;
@@ -173,6 +175,7 @@ public class FightManager : MonoBehaviour
         
         HeroClass heroTmp = _fightStateMachine.GetBlackboardVariable<HeroClass>("heroAction");
         _action.SetAction(heroTmp.GetHeroAttack(), 0, 0, heroTmp.GetBaseAttackAnimatorController());
+        Debug.Log(_action.Damage);
         _fightStateMachine.SetBlackboardVariable("action", _action);
         
         _fightStateMachine.SwitchState(_fightStateMachine.SprtieMovingFightState);
@@ -265,6 +268,9 @@ public class FightManager : MonoBehaviour
     private void UpdateEnemyOnDeath(EnemyClass enemyClass)
     {
         bool changeTarget = _enemyTarget == enemyClass;
+        
+        _totalXp += enemyClass.GetXpDrop();
+        _fightStateMachine.SetBlackboardVariable("totalXp",_totalXp);
         
         enemyClass.GO.GetComponent<EnemyFightUI>().SetEnemyClass(null);
         enemyClass.Image.color = new Color(1, 1, 1, 0);

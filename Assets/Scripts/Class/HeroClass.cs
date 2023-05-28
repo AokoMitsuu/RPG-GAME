@@ -164,4 +164,26 @@ public class HeroClass
         _currentLifePoint = _hero.Stats.GetMaxLifePoint(_level);
         _currentManaPoint = _hero.Stats.GetMaxManaPoint(_level);
     }
+
+    public void AddXp(int xp)
+    {
+        _xp = xp;
+        CheckLevel();
+    }
+
+    private void CheckLevel()
+    {
+        for (int i = _level + 1; i <= 100; i++)
+        {
+            if (_xp >= i * i * i)
+            {
+                Debug.Log("level up");
+                _level = i;
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
 }

@@ -27,5 +27,13 @@ public class test : MonoBehaviour
         {
             Debug.Log(AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam[1].GetHeroName());
         }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Debug.Log(AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam[0].Level);
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Debug.Log(AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam[0].GetHeroAttack());
+        }
     }
 }

@@ -15,6 +15,9 @@ public class EnemySo : ScriptableObject
     public Stats Stats => _stats;
     [SerializeField] private Stats _stats;
     
+    public int XpDrop => _xpDrop;
+    [SerializeField] private int _xpDrop;
+    
     public AnimatorController BaseAttackAnimationController => _baseAttackAnimationController;
     [SerializeField] private AnimatorController _baseAttackAnimationController;
     

@@ -29,18 +29,6 @@ MonoBehaviour:
     _baseSpeed: 35
     _baseLifePoints: 55
     _baseManaPoints: 55
-    XPNeeded:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    _xpNeeded:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
   _baseAttackAnimatorController: {fileID: 9100000, guid: be98515ed4cf18f4695da51c0bc7a97c, type: 2}
   references:
     version: 2

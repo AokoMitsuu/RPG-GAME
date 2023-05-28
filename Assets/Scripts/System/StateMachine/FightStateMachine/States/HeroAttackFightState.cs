@@ -15,10 +15,10 @@ public class HeroAttackFightState : State
 
     protected override void OnEnter()
     {
-        _damage = Mathf.Max(1,  _action.Damage - _machine.GetBlackboardVariable<EnemyClass>("enemyTarget").GetEnemyDefense());
-        
         _animator = _machine.GetBlackboardVariable<Animator>("attackAnimator");
         _action = _machine.GetBlackboardVariable<FightAction>("action");
+        
+        _damage = Mathf.Max(1,  _action.Damage - _machine.GetBlackboardVariable<EnemyClass>("enemyTarget").GetEnemyDefense());
         
         _animator.gameObject.transform.position = _machine.GetBlackboardVariable<EnemyClass>("enemyTarget").GO.transform.position;
         _animator.gameObject.SetActive(true);

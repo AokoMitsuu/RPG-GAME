@@ -15,9 +15,6 @@ public class Stats
     [SerializeField] private int _baseLifePoints;
     
     [SerializeField] private int _baseManaPoints;
-    
-    public AnimationCurve XPNeeded;
-    [SerializeField] private AnimationCurve _xpNeeded;
 
     public int GetAttack(int level)
     {

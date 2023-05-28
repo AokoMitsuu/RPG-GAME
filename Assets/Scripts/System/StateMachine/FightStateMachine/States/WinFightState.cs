@@ -11,9 +11,16 @@ public class WinFightState : State
 
     protected override void OnEnter()
     {
+        int xp = _machine.GetBlackboardVariable<int>("totalXp");
+        List<HeroClass> heroes = _machine.GetBlackboardVariable<List<HeroClass>>("heroes");
+        foreach (HeroClass hero in heroes)
+        {
+            hero.AddXp(xp/4);
+        }
+        
         AppManager.Instance.SaveLoadManager.Save();
         AppManager.Instance.PlayerManager.SetPlayerMovable(true);
-
+        
         _machine.GetBlackboardVariable<GameObject>("actionBox").SetActive(false);
         _machine.GetBlackboardVariable<GameObject>("fightUIGameObject").SetActive(false);
         

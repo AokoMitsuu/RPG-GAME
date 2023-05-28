@@ -55,6 +55,11 @@ public class EnemyClass
     {
         return _enemySo.BaseAttackAnimationController;
     }
+
+    public int GetXpDrop()
+    {
+        return (_enemySo.XpDrop*level)/7;
+    }
     #endregion
 
     public bool ChargeAction(int chargeTo)
