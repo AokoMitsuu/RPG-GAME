@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -21,8 +20,8 @@ public class SkillSo : ScriptableObject
     public LocalizedString Name => _name;
     [SerializeField] private LocalizedString _name;
     
-    public AnimatorController AnimatorController => _animatorController;
-    [SerializeField] private AnimatorController _animatorController;
+    public RuntimeAnimatorController  AnimatorController => _animatorController;
+    [SerializeField] private RuntimeAnimatorController  _animatorController;
     
     public virtual void UseEffect(EntityClass entityAction, EntityClass entityTarget)
     {

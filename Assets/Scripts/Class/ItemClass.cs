@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Animations;
 
 [Serializable]
 public class ItemClass
@@ -13,8 +12,8 @@ public class ItemClass
     public ItemType Itemtype => _itemType;
     [SerializeField] private ItemType _itemType;
     
-    public AnimatorController AnimatorController => _animatorController;
-    [SerializeField] private AnimatorController _animatorController;
+    public RuntimeAnimatorController  AnimatorController => _animatorController;
+    [SerializeField] private RuntimeAnimatorController  _animatorController;
     public ItemClass(ItemSo itemSo)
     {
         _sprite = itemSo.Sprite;

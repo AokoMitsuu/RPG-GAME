@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor.Animations;
 
 [Serializable]
 public class HeroClass : EntityClass
@@ -45,7 +44,7 @@ public class HeroClass : EntityClass
         EntityFightUI = heroFightUI;
     }
     
-    public AnimatorController GetAnimatorController()
+    public RuntimeAnimatorController  GetAnimatorController()
     {
         return ((HeroSo)_entity).AnimatorController;
     }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Animations;
 
 
 public class FightAction
@@ -9,7 +8,7 @@ public class FightAction
     public int Damage;
     public int Heal;
     public int Cost;
-    public AnimatorController AnimatorController;
+    public RuntimeAnimatorController AnimatorController;
     public GameObject EntityToMove;
     public EntityClass EntityAction;
     public EntityClass EntityTarget;

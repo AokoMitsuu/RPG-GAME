@@ -52,3 +52,4 @@ MonoBehaviour:
   _cameraManagerGo: {fileID: 2657925102111770078, guid: 0e1df7cb66194f545ac9f64a414336be, type: 3}
   _dialogueManagerGo: {fileID: 6786995951409882925, guid: 9667bb7691cc23546a0d0f7db7279486, type: 3}
   _initialScene: InitialScene
+  firstScene: MainMenu

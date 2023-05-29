@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEditor.Animations;
 using UnityEngine.UI;
 
 public class EntityClass
@@ -66,7 +65,7 @@ public class EntityClass
         return _entity.Stats.GetSpeed(_level);
     }
 
-    public AnimatorController GetBaseAttackAnimatorController()
+    public RuntimeAnimatorController  GetBaseAttackAnimatorController()
     {
         return _entity.BaseAttackAnimationController;
     }

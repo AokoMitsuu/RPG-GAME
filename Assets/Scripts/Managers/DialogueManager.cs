@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -16,7 +17,17 @@ public class DialogueManager : MonoBehaviour
     
     private Coroutine _dialogueCoroutine;
     private bool _skip;
-    
+
+    private void Update()
+    {
+        if (_dialogueCoroutine == null) return;
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Skip();
+        }
+    }
+
     public void StartDialogue(DialogueSo dialogue)
     {
         if (_dialogueCoroutine != null) return;

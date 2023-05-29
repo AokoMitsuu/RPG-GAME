@@ -1,13 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class test2 : MonoBehaviour
 {
     public Animator animator;
-    public AnimatorController controller;
+    public RuntimeAnimatorController  controller;
     private bool test;
     void Start()
     {

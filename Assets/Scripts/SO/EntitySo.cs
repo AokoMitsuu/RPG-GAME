@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -19,8 +18,8 @@ public class EntitySO : ScriptableObject
     public List<EntitySkill> EntitySkills => _entitySkills;
     [SerializeField] private List<EntitySkill> _entitySkills;
     
-    public AnimatorController BaseAttackAnimationController => _baseAttackAnimationController;
-    [SerializeField] private AnimatorController _baseAttackAnimationController;
+    public RuntimeAnimatorController  BaseAttackAnimationController => _baseAttackAnimationController;
+    [SerializeField] private RuntimeAnimatorController  _baseAttackAnimationController;
 }
 
 [Serializable]

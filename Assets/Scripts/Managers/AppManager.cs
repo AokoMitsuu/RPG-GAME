@@ -26,6 +26,7 @@ public class AppManager : MonoBehaviour
     [SerializeField] private GameObject _dialogueManagerGo;
     
     [SerializeField] private string _initialScene;
+    [SerializeField] private string firstScene;
     private void Awake()
     {
         if (Instance != null)
@@ -37,9 +38,7 @@ public class AppManager : MonoBehaviour
 
         string currentScene = SceneManager.GetActiveScene().name;
         
-#if UNITY_EDITOR
         if (!SceneManager.GetSceneByName(_initialScene).IsValid()) SceneManager.LoadScene(_initialScene, LoadSceneMode.Additive);
-#endif
         
         GameObject playerManagerTmp = Instantiate(_playerManagerGo, transform);
         PlayerManager = playerManagerTmp.GetComponent<PlayerManager>();
