@@ -16,8 +16,9 @@ public class PlayerManager : MonoBehaviour
     public GameObject PlayerGo => _playerGo;
     [SerializeField] private GameObject _playerGo;
     
-    public PlayerMovement PlayerMovement => _playerMovement;
     private PlayerMovement _playerMovement;
+    
+    private PlayerInteraction _playerInteraction;
     
     public HeroDataBase HeroDataBase => _heroDataBase;
     [SerializeField] private HeroDataBase _heroDataBase;
@@ -42,13 +43,14 @@ public class PlayerManager : MonoBehaviour
     
     public void SetPlayerAt(Vector3 position)
     {
-        PlayerMovement.SetPosition(position);
+        _playerMovement.SetPosition(position);
     }
     
     public void SetplayerGameObjectInstance(GameObject PlayerGoInstance)
     {
         _playerGo = PlayerGoInstance;
         _playerMovement = _playerGo.GetComponent<PlayerMovement>();
+        _playerInteraction = _playerGo.GetComponent<PlayerInteraction>();
     }
 
     public void DestroyPlayer()
@@ -61,5 +63,6 @@ public class PlayerManager : MonoBehaviour
         if (_playerMovement == null) return;
         
         _playerMovement.SetPlayerMovable(canInteract);
+        _playerInteraction.SetPlayerInteractable(canInteract);
     }
 }

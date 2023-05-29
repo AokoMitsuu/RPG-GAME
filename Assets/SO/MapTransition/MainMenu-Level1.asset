@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: MainMenu-Level1
   m_EditorClassIdentifier: 
   _sceneName: Level1
-  _position: {x: 0.5, y: -3.25, z: -1}
+  _position: {x: 0.5, y: -3.5, z: -1}
   _fadeDuration: 1
