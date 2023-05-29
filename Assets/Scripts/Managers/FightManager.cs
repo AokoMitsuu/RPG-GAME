@@ -38,6 +38,7 @@ public class FightManager : MonoBehaviour
 
     private FightAction _fightAction;
     private int _totalXp;
+    private int fleeAttempts;
 
     private FightStateMachine _fightStateMachine;
     private void Awake()
@@ -73,6 +74,7 @@ public class FightManager : MonoBehaviour
         _fightAction = new FightAction();
         
         _totalXp = 0;
+        fleeAttempts = 0;
         
         _fightBackground.sprite = background;
 
@@ -276,6 +278,8 @@ public class FightManager : MonoBehaviour
     public void SelectTarget(EntityClass entity)
     {
         if (_fightStateMachine.CurrentState != _fightStateMachine.WaitTargetFightState) return;
+
+        fleeAttempts = 0;
         
         _fightAction = _fightStateMachine.GetBlackboardVariable<FightAction>("fightAction");
 
@@ -289,6 +293,28 @@ public class FightManager : MonoBehaviour
         _fightStateMachine.SwitchState(_fightStateMachine.SprtieMovingFightState);
     }
 
+    public void Flee()
+    {
+        fleeAttempts += 1;
+        
+        _fightAction = _fightStateMachine.GetBlackboardVariable<FightAction>("fightAction");
+
+        int odds = ((_fightAction.EntityAction.GetSpeed()*32)/((_enemies[0].GetSpeed()/4)%256))+30*fleeAttempts;
+        
+        if (odds > 255 || odds < Random.Range(0, 255))
+        {
+            Debug.Log("true" + odds);
+            _fightStateMachine.SwitchState(_fightStateMachine.WinFightState);
+        }
+        else
+        {
+            Debug.Log("false" + odds);
+            _fightAction.TargetPos = _fightAction.EntityInitalPos;
+            _fightStateMachine.SetBlackboardVariable("fightAction", _fightAction);
+            _fightStateMachine.SetBlackboardVariable("stateAfterMove", _fightStateMachine.EntityEndActionFightState);
+            _fightStateMachine.SwitchState(_fightStateMachine.SprtieMovingFightState);
+        }
+    }
     public void CancelTarget()
     {
         _fightStateMachine.SwitchState(_fightStateMachine.WaitActionFightState);

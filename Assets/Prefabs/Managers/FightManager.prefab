@@ -1389,7 +1389,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8158043931677253596}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8158043931526084227}
+        m_TargetAssemblyTypeName: FightManager, Assembly-CSharp
+        m_MethodName: Flee
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8158043931802509956
 GameObject:
   m_ObjectHideFlags: 0

@@ -61,9 +61,7 @@ public class EntityActionFightState : State
 
             if (_machine.GetBlackboardVariable<List<EntityClass>>("heroes").Count > 0 && _machine.GetBlackboardVariable<List<EntityClass>>("enemies").Count > 0)
             {
-                _machine.SetBlackboardVariable("endPos", _machine.GetBlackboardVariable<Vector3>("enemyActionGameObjectInitialPosition"));
                 _fightAction.TargetPos = _fightAction.EntityInitalPos;
-                
                 
                 _machine.SetBlackboardVariable("stateAfterMove", _machine.EntityEndActionFightState);
                 _machine.SetBlackboardVariable("fightAction", _fightAction);
