@@ -49,5 +49,6 @@ MonoBehaviour:
   _playerManagerGo: {fileID: 5027844379401000110, guid: cfbeac9e86ab43149b689c2d4b9dd768, type: 3}
   _saveLoadManagerGo: {fileID: 2380191120160489059, guid: edf85a9c72f90914784da2401ec92389, type: 3}
   _sceneAppManagerGo: {fileID: 2090133941030405173, guid: d4f34bd115dfd0a42ba51681e29a13f6, type: 3}
-  _CameraManagerGo: {fileID: 2657925102111770078, guid: 0e1df7cb66194f545ac9f64a414336be, type: 3}
+  _cameraManagerGo: {fileID: 2657925102111770078, guid: 0e1df7cb66194f545ac9f64a414336be, type: 3}
+  _dialogueManagerGo: {fileID: 6786995951409882925, guid: 9667bb7691cc23546a0d0f7db7279486, type: 3}
   _initialScene: InitialScene

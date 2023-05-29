@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StateMachine;
+using UnityEngine.UI;
 
 public class ChargingFightState : State
 {
@@ -80,7 +81,7 @@ public class ChargingFightState : State
                 _fightAction.EntityTarget = _heroTarget;
                 _fightAction.EntityAction = _enemyAction;
                 _fightAction.EntityToMove = _enemyActionGameObject;
-                _fightAction.TargetPos = _heroTarget.GO.transform.position + new Vector3(150,0,0);
+                _fightAction.TargetPos = _heroTarget.GO.transform.position + new Vector3(_heroTarget.GO.GetComponent<Image>().rectTransform.rect.width*2, 0, 0);
                 _fightAction.EntityInitalPos = _enemyActionGameObjectInitialPosition;
                 _fightAction.AnimatorController = _enemyAction.GetBaseAttackAnimatorController();
                 _fightAction.Damage = _enemyAction.GetAttack();

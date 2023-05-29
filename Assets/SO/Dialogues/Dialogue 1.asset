@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bff7c5fd3c48ae4286d97928f2c4aba, type: 3}
+  m_Name: Dialogue 1
+  m_EditorClassIdentifier: 
+  _dialogue:
+  - _sentence:
+      m_TableReference:
+        m_TableCollectionName: GUID:ad904d4eeb14e844dbfd3f7e40474146
+      m_TableEntryReference:
+        m_KeyId: 5229150208
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _pnjName:
+      m_TableReference:
+        m_TableCollectionName: GUID:566ec14c379a25b409f4fac80dc8cad1
+      m_TableEntryReference:
+        m_KeyId: 5954764800
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _pnjSprite: {fileID: 853648591, guid: 849e1115d21e09b49841dacc8b643f03, type: 3}
+  - _sentence:
+      m_TableReference:
+        m_TableCollectionName: GUID:ad904d4eeb14e844dbfd3f7e40474146
+      m_TableEntryReference:
+        m_KeyId: 43695112192
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _pnjName:
+      m_TableReference:
+        m_TableCollectionName: GUID:566ec14c379a25b409f4fac80dc8cad1
+      m_TableEntryReference:
+        m_KeyId: 5954764800
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _pnjSprite: {fileID: 853648591, guid: 849e1115d21e09b49841dacc8b643f03, type: 3}
+  - _sentence:
+      m_TableReference:
+        m_TableCollectionName: GUID:ad904d4eeb14e844dbfd3f7e40474146
+      m_TableEntryReference:
+        m_KeyId: 48652779520
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _pnjName:
+      m_TableReference:
+        m_TableCollectionName: GUID:566ec14c379a25b409f4fac80dc8cad1
+      m_TableEntryReference:
+        m_KeyId: 5954764800
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _pnjSprite: {fileID: 853648591, guid: 849e1115d21e09b49841dacc8b643f03, type: 3}
+  references:
+    version: 2
+    RefIds: []

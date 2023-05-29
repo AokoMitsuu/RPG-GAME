@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.Localization.SmartFormat.Utilities;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -283,7 +284,7 @@ public class FightManager : MonoBehaviour
         
         _fightAction = _fightStateMachine.GetBlackboardVariable<FightAction>("fightAction");
 
-        _fightAction.TargetPos = entity.GO.transform.position - new Vector3(125, 0, 0);
+        _fightAction.TargetPos = entity.GO.transform.position - new Vector3(entity.GO.GetComponent<Image>().rectTransform.rect.width*2, 0, 0);
         _fightAction.Damage = _fightAction.EntityAction.GetAttack();
         _fightAction.EntityTarget = entity;
         

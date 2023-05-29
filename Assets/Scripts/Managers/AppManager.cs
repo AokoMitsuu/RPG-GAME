@@ -15,13 +15,15 @@ public class AppManager : MonoBehaviour
     public SaveLoadManager SaveLoadManager { get; private set; }
     public SceneAppManager SceneAppManager { get; private set; }
     public CameraManager CameraManager { get; private set; }
+    public DialogueManager DialogueManager { get; private set; }
 
     [SerializeField] private GameObject _fightManagerGo;
     [SerializeField] private GameObject _mapManagerGo;
     [SerializeField] private GameObject _playerManagerGo;
     [SerializeField] private GameObject _saveLoadManagerGo;
     [SerializeField] private GameObject _sceneAppManagerGo;
-    [SerializeField] private GameObject _CameraManagerGo;
+    [SerializeField] private GameObject _cameraManagerGo;
+    [SerializeField] private GameObject _dialogueManagerGo;
     
     [SerializeField] private string _initialScene;
     private void Awake()
@@ -55,8 +57,11 @@ public class AppManager : MonoBehaviour
         SceneAppManager = sceneAppManagerTmp.GetComponent<SceneAppManager>();
         SceneAppManager.Init(currentScene);
         
-        GameObject cameraManagerTmp = Instantiate(_CameraManagerGo, transform);
+        GameObject cameraManagerTmp = Instantiate(_cameraManagerGo, transform);
         CameraManager = cameraManagerTmp.GetComponent<CameraManager>();
+        
+        GameObject dialogueMangerTmp = Instantiate(_dialogueManagerGo, transform);
+        DialogueManager = dialogueMangerTmp.GetComponent<DialogueManager>();
         
         DontDestroyOnLoad(this.gameObject);
     }

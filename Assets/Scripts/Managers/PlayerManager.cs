@@ -58,6 +58,8 @@ public class PlayerManager : MonoBehaviour
 
     public void SetPlayerMovable(bool canMove)
     {
+        if (_playerMovement == null) return;
+        
         _playerMovement.SetPlayerMovable(canMove);
     }
 }

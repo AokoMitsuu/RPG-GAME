@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Dialogues_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: ad904d4eeb14e844dbfd3f7e40474146, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 5229150208
+    m_Localized: This is a test for dialogue system
+    m_Metadata:
+      m_Items: []
+  - m_Id: 43695112192
+    m_Localized: The Maximum longer of each sentence are 96 character, if you exceed
+      this limit, it may not display as you want
+    m_Metadata:
+      m_Items: []
+  - m_Id: 48652779520
+    m_Localized: So be carefule and be sure that your sentence are under 96 character
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

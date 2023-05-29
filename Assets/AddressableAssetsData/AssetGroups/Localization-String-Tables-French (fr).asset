@@ -35,6 +35,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-fr
     - Preload
+  - m_GUID: 485f308680932d340bb6ef35fc6aee15
+    m_Address: Dialogues_fr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    - Preload
+  - m_GUID: b9d25b4953b462641ac01fb00e90a082
+    m_Address: PNJ Name_fr
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-fr
+    - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 63e9ff93825bc8142a702a19b0b99d46, type: 2}
   m_SchemaSet:
