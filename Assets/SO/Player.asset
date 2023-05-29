@@ -17,7 +17,7 @@ MonoBehaviour:
     Image: {fileID: 0}
     RectTransform: {fileID: 0}
     EntityFightUI: {fileID: 0}
-    _currentLifePoint: 1
+    _currentLifePoint: 12
     _currentManaPoint: 12
     _level: 1
     _xp: 0
@@ -26,12 +26,16 @@ MonoBehaviour:
     Image: {fileID: 0}
     RectTransform: {fileID: 0}
     EntityFightUI: {fileID: 0}
-    _currentLifePoint: 8
+    _currentLifePoint: 12
     _currentManaPoint: 12
     _level: 1
     _xp: 0
     _heroClassIndex: 1
   _healInventory:
+  - _sprite: {fileID: 1142460737, guid: 131c6a660cdcb3240918ec1cc0c2db26, type: 3}
+    _itemType: 0
+    _animatorController: {fileID: 9100000, guid: 501505066cb5b4f4b99f0fb8f5dce9ac, type: 2}
+    _heal: 10
   - _sprite: {fileID: 1142460737, guid: 131c6a660cdcb3240918ec1cc0c2db26, type: 3}
     _itemType: 0
     _animatorController: {fileID: 9100000, guid: 501505066cb5b4f4b99f0fb8f5dce9ac, type: 2}
@@ -45,5 +49,9 @@ MonoBehaviour:
     _itemType: 1
     _animatorController: {fileID: 9100000, guid: 501505066cb5b4f4b99f0fb8f5dce9ac, type: 2}
     _heal: 1
-  _lastPosition: {x: -1.4649988, y: -1.2500548, z: -1}
+  - _sprite: {fileID: 1134267592, guid: 131c6a660cdcb3240918ec1cc0c2db26, type: 3}
+    _itemType: 1
+    _animatorController: {fileID: 9100000, guid: 501505066cb5b4f4b99f0fb8f5dce9ac, type: 2}
+    _heal: 1
+  _lastPosition: {x: 0.5, y: -3.25, z: -1}
   _lastSceneName: Level1

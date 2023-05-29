@@ -28,6 +28,9 @@ MonoBehaviour:
     _baseSpeed: 35
     _baseLifePoints: 55
     _baseManaPoints: 55
+  _entitySkills:
+  - Skill: {fileID: 11400000, guid: cfed08a47a47e4547b9cbc6c48db6c8d, type: 2}
+    LevelRequired: 2
   _baseAttackAnimationController: {fileID: 9100000, guid: be98515ed4cf18f4695da51c0bc7a97c, type: 2}
   _animatorController: {fileID: 9100000, guid: 30bb65c8ad485654d988226a6e49396e, type: 2}
   references:

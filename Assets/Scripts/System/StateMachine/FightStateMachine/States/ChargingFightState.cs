@@ -50,6 +50,7 @@ public class ChargingFightState : State
                 _heroAction = (HeroClass)_heroes[i];
                 _heroActionGameObjectInitialPosition = _heroActionGameObject.transform.position;
 
+                
                 _fightAction.EntityAction = _heroAction;
                 _fightAction.EntityToMove = _heroActionGameObject;
                 _fightAction.TargetPos = _heroActionGameObject.transform.position + new Vector3(75, 0, 0);
@@ -57,6 +58,9 @@ public class ChargingFightState : State
                 
                 _machine.SetBlackboardVariable("stateAfterMove", _machine.WaitActionFightState);
                 _machine.SetBlackboardVariable("fightAction", _fightAction);
+                
+                AppManager.Instance.FightManager.UpdateSkillPanel();
+                
                 _machine.SwitchState(_machine.SprtieMovingFightState);
                 return;
             }

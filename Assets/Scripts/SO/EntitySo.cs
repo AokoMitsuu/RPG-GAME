@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Animations;
@@ -15,6 +16,16 @@ public class EntitySO : ScriptableObject
     public Stats Stats => _stats;
     [SerializeField] private Stats _stats;
     
+    public List<EntitySkill> EntitySkills => _entitySkills;
+    [SerializeField] private List<EntitySkill> _entitySkills;
+    
     public AnimatorController BaseAttackAnimationController => _baseAttackAnimationController;
     [SerializeField] private AnimatorController _baseAttackAnimationController;
+}
+
+[Serializable]
+public struct EntitySkill
+{
+    public SkillSo Skill;
+    public int LevelRequired;
 }

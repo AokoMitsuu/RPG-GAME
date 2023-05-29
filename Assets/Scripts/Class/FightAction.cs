@@ -17,10 +17,12 @@ public class FightAction
     public Vector3 TargetPos;
     public FightActionType FightActionType;
     public ItemClass Item;
+    public SkillSo Skill;
 }
 
 public enum FightActionType{
     Attack,
-    Heal,
-    Revive
+    HealItem,
+    ReviveItem,
+    Skill,
 }

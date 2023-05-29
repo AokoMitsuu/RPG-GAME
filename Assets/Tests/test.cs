@@ -8,7 +8,6 @@ public class test : MonoBehaviour
 {
     public ReviveItemSo Item;
     public HealItemSo Item2;
-    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -25,9 +24,11 @@ public class test : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.K))
         {
-            foreach (var VARIABLE in AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam)
+            foreach (var hero in AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam)
             {
-                VARIABLE.AddXp(217);
+                int levelTo = hero.Level + 1;
+                int xp = (levelTo * levelTo * levelTo) - hero.XP;
+                hero.AddXp(xp);
             }
         }
     }

@@ -78,6 +78,12 @@ public class HeroClass : EntityClass
         OnStatsChange?.Invoke();
     }
 
+    public override void ConsumeMana(int manaConsume)
+    {
+        base.ConsumeMana(manaConsume);
+        OnStatsChange?.Invoke();
+    }
+
     public void Heal(int heal)
     {
         _currentLifePoint = Mathf.Min(_currentLifePoint + heal, GetMaxLifePoint());
@@ -91,7 +97,7 @@ public class HeroClass : EntityClass
 
     public void AddXp(int xp)
     {
-        _xp = xp;
+        _xp += xp;
         CheckLevel();
     }
 

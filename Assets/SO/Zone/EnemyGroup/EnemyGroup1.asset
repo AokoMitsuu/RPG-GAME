@@ -20,8 +20,8 @@ MonoBehaviour:
     MinLevel: 0
     MaxLevel: 0
   - Enemy: {fileID: 11400000, guid: 41a4be6122b944d47935b1d699a83cdc, type: 2}
-    MinLevel: 5
-    MaxLevel: 7
+    MinLevel: 1
+    MaxLevel: 2
   - Enemy: {fileID: 0}
     MinLevel: 0
     MaxLevel: 0
@@ -35,8 +35,8 @@ MonoBehaviour:
     MinLevel: 0
     MaxLevel: 0
   - Enemy: {fileID: 11400000, guid: 42e5329c57aa2b04b9dd773f3f7595a1, type: 2}
-    MinLevel: 5
-    MaxLevel: 7
+    MinLevel: 1
+    MaxLevel: 2
   - Enemy: {fileID: 0}
     MinLevel: 0
     MaxLevel: 0

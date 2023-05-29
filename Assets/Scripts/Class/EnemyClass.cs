@@ -40,6 +40,6 @@ public class EnemyClass : EntityClass
     }
     public int GetXpDrop()
     {
-        return (_enemySo.XpDrop*level)/7;
+        return (_enemySo.XpDrop*Level)/7;
     }
 }

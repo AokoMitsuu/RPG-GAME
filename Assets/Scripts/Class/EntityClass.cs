@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEditor.Animations;
 using UnityEngine.UI;
@@ -13,7 +14,7 @@ public class EntityClass
     
     [SerializeField] protected int _currentLifePoint;
     [SerializeField] protected int _currentManaPoint;
-    public int level => _level;
+    public int Level => _level;
     [SerializeField] protected int _level;
     
     protected EntitySO _entity;
@@ -81,7 +82,20 @@ public class EntityClass
     {
         _chargeAction = 0;
     }
+
+    public List<EntitySkill> GetSkillsAvailable()
+    {
+
+        return (from skill in _entity.EntitySkills
+            where skill.LevelRequired <= _level
+            select skill).ToList();
+    }
     
     public virtual void TakeDamage(int damage){}
+
+    public virtual void ConsumeMana(int manaConsume)
+    {
+        _currentManaPoint -= manaConsume;
+    }
     
 }

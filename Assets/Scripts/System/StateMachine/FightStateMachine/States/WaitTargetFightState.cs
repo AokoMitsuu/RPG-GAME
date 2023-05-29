@@ -14,7 +14,8 @@ public class WaitTargetFightState : State
     protected override void OnEnter()
     {
         _entitiesTargets = _machine.GetBlackboardVariable<List<EntityClass>>("entitiesTarget");
-
+        _machine.GetBlackboardVariable<GameObject>("cancelTargetPanel").SetActive(true);
+        
         foreach (EntityClass entity in _entitiesTargets)
         {
             entity.EntityFightUI.ToggleTargetPanel(true);
@@ -28,7 +29,8 @@ public class WaitTargetFightState : State
     protected override void OnExit()
     {
         _entitiesTargets = _machine.GetBlackboardVariable<List<EntityClass>>("entitiesTarget");
-
+        _machine.GetBlackboardVariable<GameObject>("cancelTargetPanel").SetActive(false);
+        
         foreach (EntityClass entity in _entitiesTargets)
         {
             entity.EntityFightUI.ToggleTargetPanel(false);

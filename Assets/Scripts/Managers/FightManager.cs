@@ -17,13 +17,17 @@ public class FightManager : MonoBehaviour
     [SerializeField] private FightPlayerPreview _fightPlayerAction;
     [SerializeField] private GameObject _actionBox;
     [SerializeField] private GameObject _itemPrefab;
+    [SerializeField] private GameObject _skillPrefab;
     [SerializeField] private RectTransform _itemContentTransform;
+    [SerializeField] private RectTransform _skillContentTransform;
     [SerializeField] private GridLayoutGroup _itemGridLayout;
     [SerializeField] private EntityFightUI[] _heroesFightUI;
     [SerializeField] private EntityFightUI[] _enemiesFightUI;
     [SerializeField] private FightTransition _fightTransition;
     [SerializeField] private GameObject _damageFightPopups;
     [SerializeField] private GameObject _itemsPanel;
+    [SerializeField] private GameObject _skillsPanel;
+    [SerializeField] private GameObject _cancelTargetPanel;
     [SerializeField] private Animator _attackAnimator;
     [SerializeField] private float _chargeMaxSeconds;
 
@@ -135,6 +139,7 @@ public class FightManager : MonoBehaviour
         
         _fightStateMachine.SetBlackboardVariable("fightUIGameObject",_fightUIGameObject);
         _fightStateMachine.SetBlackboardVariable("actionBox",_actionBox);
+        _fightStateMachine.SetBlackboardVariable("cancelTargetPanel",_cancelTargetPanel);
         _fightStateMachine.SetBlackboardVariable("fightPlayerAction",_fightPlayerAction);
 
         _fightStateMachine.SetBlackboardVariable("charge",maxSpeed);
@@ -161,8 +166,15 @@ public class FightManager : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
+
+        //TODO rework it
+        int itemCount = AppManager.Instance.PlayerManager.PlayerSo.HealInventory.Count +
+                        AppManager.Instance.PlayerManager.PlayerSo.ReviveInventory.Count;
         
-        _itemContentTransform.sizeDelta = new Vector2(_itemContentTransform.sizeDelta.x,_itemGridLayout.padding.top + _itemGridLayout.cellSize.y * (AppManager.Instance.PlayerManager.PlayerSo.HealInventory.Count + AppManager.Instance.PlayerManager.PlayerSo.ReviveInventory.Count) + _itemGridLayout.spacing.y * (AppManager.Instance.PlayerManager.PlayerSo.HealInventory.Count + AppManager.Instance.PlayerManager.PlayerSo.ReviveInventory.Count));
+        float height = _itemGridLayout.padding.top + _itemGridLayout.cellSize.y * itemCount +
+                       _itemGridLayout.spacing.y * itemCount;
+        
+        _itemContentTransform.sizeDelta = new Vector2(_itemContentTransform.sizeDelta.x,height);
 
         foreach (HealItemClass item in AppManager.Instance.PlayerManager.PlayerSo.HealInventory)
         {
@@ -174,6 +186,23 @@ public class FightManager : MonoBehaviour
         {
             GameObject itemTmp = Instantiate(_itemPrefab, _itemContentTransform);
             itemTmp.GetComponent<ItemFightUI>().Init(item);
+        }
+    }
+
+    public void UpdateSkillPanel()
+    {
+        foreach (Transform child in _skillContentTransform.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        _fightAction = _fightStateMachine.GetBlackboardVariable<FightAction>("fightAction");
+        List<EntitySkill> skills = _fightAction.EntityAction.GetSkillsAvailable();
+
+        foreach (EntitySkill skill in skills)
+        {
+            GameObject itemTmp = Instantiate(_skillPrefab, _skillContentTransform);
+            itemTmp.GetComponent<SkillFightUI>().Init((HeroClass)_fightAction.EntityAction,skill);
         }
     }
     
@@ -203,11 +232,39 @@ public class FightManager : MonoBehaviour
         switch (item.Itemtype)
         {
             case ItemType.Heal:
-                _fightAction.FightActionType = FightActionType.Heal;
+                _fightAction.FightActionType = FightActionType.HealItem;
                 _fightStateMachine.SetBlackboardVariable("entitiesTarget", _heroes);
                 break;
             case ItemType.Revive:
-                _fightAction.FightActionType = FightActionType.Revive;
+                _fightAction.FightActionType = FightActionType.ReviveItem;
+                _fightStateMachine.SetBlackboardVariable("entitiesTarget", _heroesDead);
+                break;
+        }
+        
+        _fightStateMachine.SetBlackboardVariable("fightAction", _fightAction);
+        _fightStateMachine.SwitchState(_fightStateMachine.WaitTargetFightState);
+    }
+
+    public void HeroUseSkill(SkillSo skill)
+    {
+        if (_fightStateMachine.CurrentState != _fightStateMachine.WaitActionFightState) return;
+        
+        _skillsPanel.SetActive(false);
+        _fightAction = _fightStateMachine.GetBlackboardVariable<FightAction>("fightAction");
+        _fightAction.Skill = skill;
+        
+        _fightAction.AnimatorController = skill.AnimatorController;
+        _fightAction.FightActionType = FightActionType.Skill;
+        
+        switch (skill.SkillTarget)
+        {
+            case SkillTarget.Enemy:
+                _fightStateMachine.SetBlackboardVariable("entitiesTarget", _enemies);
+                break;
+            case SkillTarget.AliveHero:
+                _fightStateMachine.SetBlackboardVariable("entitiesTarget", _heroes);
+                break;
+            case SkillTarget.DeadHero:
                 _fightStateMachine.SetBlackboardVariable("entitiesTarget", _heroesDead);
                 break;
         }
@@ -230,6 +287,11 @@ public class FightManager : MonoBehaviour
         _fightStateMachine.SetBlackboardVariable("fightAction", _fightAction);
 
         _fightStateMachine.SwitchState(_fightStateMachine.SprtieMovingFightState);
+    }
+
+    public void CancelTarget()
+    {
+        _fightStateMachine.SwitchState(_fightStateMachine.WaitActionFightState);
     }
 
     public void ReviveHero(HeroClass hero)

@@ -20,6 +20,10 @@ public class EntityActionFightState : State
         { 
             _damage = Mathf.Max(1,  _fightAction.Damage - _fightAction.EntityTarget.GetDefense());
         }
+        else if (_fightAction.FightActionType == FightActionType.Skill && _fightAction.Skill.SkillType == SkillType.Damage)
+        {
+            _damage = Mathf.Max(1, _fightAction.EntityAction.GetAttack() +((DamageSkillSo)_fightAction.Skill).Damage - _fightAction.EntityTarget.GetDefense());
+        }
         
         _animator = _machine.GetBlackboardVariable<Animator>("attackAnimator");
         
@@ -40,11 +44,18 @@ public class EntityActionFightState : State
                     AppManager.Instance.FightManager.InstantiateDamagePopups(_damage, _fightAction.EntityTarget.GO.transform.position);
                     _fightAction.EntityTarget.TakeDamage(_damage);
                     break;
-                case FightActionType.Heal:
+                case FightActionType.HealItem:
                     ((HealItemClass)_fightAction.Item).UseEffect((HeroClass)_fightAction.EntityTarget);
                     break;
-                case FightActionType.Revive:
+                case FightActionType.ReviveItem:
                     ((ReviveItemClass)_fightAction.Item).UseEffect((HeroClass)_fightAction.EntityTarget);
+                    break;
+                case FightActionType.Skill:
+                    _fightAction.Skill.UseEffect(_fightAction.EntityAction, _fightAction.EntityTarget);
+                    if (_fightAction.FightActionType == FightActionType.Skill && _fightAction.Skill.SkillType == SkillType.Damage)
+                    {
+                        AppManager.Instance.FightManager.InstantiateDamagePopups(_damage, _fightAction.EntityTarget.GO.transform.position);
+                    }
                     break;
             }
 
