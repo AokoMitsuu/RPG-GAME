@@ -30,7 +30,7 @@ public class EncounterZone : MonoBehaviour
             
             if (random <= range) continue;
 
-            AppManager.Instance.PlayerManager.SetPlayerMovable(false);
+            AppManager.Instance.PlayerManager.SetPlayerInteractable(false);
             AppManager.Instance.FightManager.EnemyEncounter(_zoneSo.Background, AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam, _zoneSo.EnemyDataZones[i]);
             break;
         }

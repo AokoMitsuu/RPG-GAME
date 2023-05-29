@@ -712,7 +712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialoguePanel: {fileID: 6786995950807704880}
-  _durationBetweenLetter: 0.1
+  _durationBetweenLetter: 0.03
   _durationBetweenSentence: 5
   _dialogueText: {fileID: 6786995950808875193}
   _namePNJText: {fileID: 6786995949992353667}

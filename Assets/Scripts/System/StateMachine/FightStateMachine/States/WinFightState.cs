@@ -19,7 +19,7 @@ public class WinFightState : State
         }
         
         AppManager.Instance.SaveLoadManager.Save();
-        AppManager.Instance.PlayerManager.SetPlayerMovable(true);
+        AppManager.Instance.PlayerManager.SetPlayerInteractable(true);
         
         _machine.GetBlackboardVariable<GameObject>("actionBox").SetActive(false);
         _machine.GetBlackboardVariable<GameObject>("fightUIGameObject").SetActive(false);

@@ -56,10 +56,10 @@ public class PlayerManager : MonoBehaviour
         Destroy(_playerGo);
     }
 
-    public void SetPlayerMovable(bool canMove)
+    public void SetPlayerInteractable(bool canInteract)
     {
         if (_playerMovement == null) return;
         
-        _playerMovement.SetPlayerMovable(canMove);
+        _playerMovement.SetPlayerMovable(canInteract);
     }
 }

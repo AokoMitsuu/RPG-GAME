@@ -21,7 +21,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (_dialogueCoroutine != null) return;
 
-        AppManager.Instance.PlayerManager.SetPlayerMovable(false);
+        AppManager.Instance.PlayerManager.SetPlayerInteractable(false);
         _dialoguePanel.SetActive(true);
         
         _dialogueCoroutine = _dialogueCoroutine = StartCoroutine(StartDialogueCoroutine(dialogue));
@@ -71,7 +71,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        AppManager.Instance.PlayerManager.SetPlayerMovable(true);
+        AppManager.Instance.PlayerManager.SetPlayerInteractable(true);
         _dialoguePanel.SetActive(false);
         
         _dialogueCoroutine = null;
