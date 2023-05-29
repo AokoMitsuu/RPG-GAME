@@ -107,8 +107,9 @@ public class HeroClass : EntityClass
         {
             if (_xp >= i * i * i)
             {
-                Debug.Log("level up");
+                int oldMax = GetMaxLifePoint();
                 _level = i;
+                _currentLifePoint += GetMaxLifePoint() - oldMax;
             }
             else
             {

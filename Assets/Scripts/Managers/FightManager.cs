@@ -303,12 +303,10 @@ public class FightManager : MonoBehaviour
         
         if (odds > 255 || odds < Random.Range(0, 255))
         {
-            Debug.Log("true" + odds);
             _fightStateMachine.SwitchState(_fightStateMachine.WinFightState);
         }
         else
         {
-            Debug.Log("false" + odds);
             _fightAction.TargetPos = _fightAction.EntityInitalPos;
             _fightStateMachine.SetBlackboardVariable("fightAction", _fightAction);
             _fightStateMachine.SetBlackboardVariable("stateAfterMove", _fightStateMachine.EntityEndActionFightState);
