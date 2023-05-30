@@ -5,9 +5,9 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     [SerializeField] private GameObject _camera;
-    public void SetCameraTo(Transform transfrom)
+    public void SetCameraTo(Transform transform)
     {
-        _camera.transform.SetParent(transfrom);
-        _camera.transform.position = new Vector3(0,0,-10);
+        _camera.transform.SetParent(transform);
+        _camera.transform.localPosition = new Vector3(0,0,-10);
     }
 }

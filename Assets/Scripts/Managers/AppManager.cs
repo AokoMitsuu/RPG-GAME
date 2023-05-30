@@ -40,6 +40,7 @@ public class AppManager : MonoBehaviour
         
         if (!SceneManager.GetSceneByName(_initialScene).IsValid()) SceneManager.LoadScene(_initialScene, LoadSceneMode.Additive);
         
+        
         GameObject playerManagerTmp = Instantiate(_playerManagerGo, transform);
         PlayerManager = playerManagerTmp.GetComponent<PlayerManager>();
         
@@ -63,5 +64,19 @@ public class AppManager : MonoBehaviour
         DialogueManager = dialogueMangerTmp.GetComponent<DialogueManager>();
         
         DontDestroyOnLoad(this.gameObject);
+        
+        
     }
+    
+#if UNITY_EDITOR
+    private void Start()
+    {
+        if (GameObject.FindGameObjectWithTag("PlayerStart"))
+        {
+            SaveLoadManager.Load();
+            PlayerManager.SpawnPlayerAndAttachCamera(GameObject.FindGameObjectWithTag("PlayerStart").transform.position);
+        }
+    }
+#endif
+
 }
