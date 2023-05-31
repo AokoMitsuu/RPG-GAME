@@ -12,6 +12,7 @@ public class House : MonoBehaviour
     
     private List<List<Vector3Int>> _houses;
     private Vector3Int _lastPosition;
+    
     private void Awake()
     {
         _houses = new List<List<Vector3Int>>();

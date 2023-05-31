@@ -15,6 +15,7 @@ public class LostFightState : State
         {
             _machine.GetBlackboardVariable<GameObject>("actionBox").SetActive(false);
             _machine.GetBlackboardVariable<GameObject>("fightUIGameObject").SetActive(false);
+            AppManager.Instance.FightManager.ClearPopups();
             
             AppManager.Instance.CameraManager.SetCameraTo(AppManager.Instance.CameraManager.transform);
             AppManager.Instance.PlayerManager.DestroyPlayer();

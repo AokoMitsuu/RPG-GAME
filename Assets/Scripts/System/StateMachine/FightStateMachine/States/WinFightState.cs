@@ -23,6 +23,7 @@ public class WinFightState : State
         
         _machine.GetBlackboardVariable<GameObject>("actionBox").SetActive(false);
         _machine.GetBlackboardVariable<GameObject>("fightUIGameObject").SetActive(false);
+        AppManager.Instance.FightManager.ClearPopups();
         
         _machine.SwitchState(_machine.NoneFightState);
     }

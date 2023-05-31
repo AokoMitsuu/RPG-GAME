@@ -33,17 +33,18 @@ public class FightManager : MonoBehaviour
     private List<EntityClass> _heroesDead;
     private List<EntityClass> _enemies;
 
-
     private FightAction _fightAction;
     private int _totalXp;
     private int fleeAttempts;
 
     private FightStateMachine _fightStateMachine;
+    private List<GameObject> listDamagePopups;
     private void Awake()
     {
         _heroes = new List<EntityClass>();
         _heroesDead = new List<EntityClass>();
         _enemies = new List<EntityClass>();
+        listDamagePopups = new List<GameObject>();
         
         _fightAction = new FightAction();
         
@@ -326,8 +327,20 @@ public class FightManager : MonoBehaviour
     {
         GameObject damagePopupsTmp = Instantiate(_damageFightPopups, _fightUIGameObject.transform);
         damagePopupsTmp.GetComponent<DamageFightPopups>().Init(damage, position);
+        listDamagePopups.Add(damagePopupsTmp);
     }
 
+    public void ClearPopups()
+    {
+        foreach (GameObject damagePopups in listDamagePopups)
+        {
+            if(damagePopups != null)
+                Destroy(damagePopups);
+        }
+
+        listDamagePopups.Clear();
+    }
+    
     public void ShakeEntity(GameObject entity, float duration, float speed, float amount)
     {
         StartCoroutine(ShakeEntityCoroutine(entity, duration, speed, amount));

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class AppManager : MonoBehaviour
 {
-    public static AppManager Instance;
+    public static AppManager Instance { get; private set; }
 
     public FightManager FightManager  { get; private set; }
     public MapManager MapManager { get; private set; }

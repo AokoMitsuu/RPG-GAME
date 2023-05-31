@@ -106,9 +106,12 @@ public class HeroClass : EntityClass
         {
             if (_xp >= i * i * i)
             {
-                int oldMax = GetMaxLifePoint();
+                int oldMaxLifePoint = GetMaxLifePoint();
+                int oldMaxManaPoint = GetMaxManaPoint();
+                
                 _level = i;
-                _currentLifePoint += GetMaxLifePoint() - oldMax;
+                _currentLifePoint += GetMaxLifePoint() - oldMaxLifePoint;
+                _currentManaPoint += GetMaxManaPoint() - oldMaxManaPoint;
             }
             else
             {

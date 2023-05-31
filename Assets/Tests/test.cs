@@ -23,15 +23,15 @@ public class test : MonoBehaviour
         // {
         //     Debug.Log(AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam[1].CurrentLifePoint);
         // }
-        // if (Input.GetKeyDown(KeyCode.K))
-        // {
-        //     foreach (var hero in AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam)
-        //     {
-        //         int levelTo = hero.Level + 1;
-        //         int xp = (levelTo * levelTo * levelTo) - hero.XP;
-        //         hero.AddXp(xp);
-        //     }
-        // }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            foreach (var hero in AppManager.Instance.PlayerManager.PlayerSo.HeroesTeam)
+            {
+                int levelTo = hero.Level + 1;
+                int xp = (levelTo * levelTo * levelTo) - hero.XP;
+                hero.AddXp(xp);
+            }
+        }
         if (Input.GetKeyDown(KeyCode.M))
         {
             AppManager.Instance.DialogueManager.StartDialogue(dialogue);
