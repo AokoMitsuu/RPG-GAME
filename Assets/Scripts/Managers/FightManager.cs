@@ -39,6 +39,8 @@ public class FightManager : MonoBehaviour
 
     private FightStateMachine _fightStateMachine;
     private List<GameObject> listDamagePopups;
+    private System.Action _callbackEndFight;
+    
     private void Awake()
     {
         _heroes = new List<EntityClass>();
@@ -51,11 +53,12 @@ public class FightManager : MonoBehaviour
         _fightStateMachine = new FightStateMachine();
     }
     
-    public void EnemyEncounter(Sprite background, List<HeroClass> heroes, ZoneSo.EnemyDataZone enemyDataZone)
+    public void EnemyEncounter(Sprite background, List<HeroClass> heroes, ZoneSo.EnemyDataZone enemyDataZone, System.Action callbackEndFight = null)
     {
+        AppManager.Instance.PlayerManager.SetPlayerInteractable(false);
         System.Action midCallback = () =>
         {
-            SetupFight(background, heroes, enemyDataZone);
+            SetupFight(background, heroes, enemyDataZone, callbackEndFight);
         };
         System.Action endCallback = () =>
         {
@@ -64,7 +67,7 @@ public class FightManager : MonoBehaviour
         _fightTransition.StartTransition(enemyDataZone.FightTransition.Material, enemyDataZone.FightTransition.Duration, midCallback, endCallback);
     }
     
-    public void SetupFight(Sprite background, List<HeroClass> heroes, ZoneSo.EnemyDataZone enemyDataZone)
+    public void SetupFight(Sprite background, List<HeroClass> heroes, ZoneSo.EnemyDataZone enemyDataZone, System.Action callbackEndFight = null)
     {
         _heroes.Clear();
         _heroesDead.Clear();
@@ -131,9 +134,9 @@ public class FightManager : MonoBehaviour
         }
 
         UpdateItemsPanel();
-        
-        _fightUIGameObject.SetActive(true);
-        
+
+        _callbackEndFight = callbackEndFight;
+
         _fightStateMachine.SetBlackboardVariable("heroes",_heroes);
         _fightStateMachine.SetBlackboardVariable("heroesDead",_heroesDead);
         _fightStateMachine.SetBlackboardVariable("enemies",_enemies);
@@ -149,6 +152,10 @@ public class FightManager : MonoBehaviour
         _fightStateMachine.SetBlackboardVariable("attackAnimator",_attackAnimator);
         
         _fightStateMachine.SetBlackboardVariable("fightAction",_fightAction);
+        
+        _fightStateMachine.SetBlackboardVariable("callbackEndFight",_callbackEndFight);
+        
+        _fightUIGameObject.SetActive(true);
     }
 
     public void StartFight()

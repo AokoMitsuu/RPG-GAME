@@ -28,17 +28,17 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(DialogueSo dialogue)
+    public void StartDialogue(DialogueSo dialogue, System.Action endDialogueAction = null)
     {
         if (_dialogueCoroutine != null) return;
 
         AppManager.Instance.PlayerManager.SetPlayerInteractable(false);
         _dialoguePanel.SetActive(true);
         
-        _dialogueCoroutine = _dialogueCoroutine = StartCoroutine(StartDialogueCoroutine(dialogue));
+        _dialogueCoroutine = _dialogueCoroutine = StartCoroutine(StartDialogueCoroutine(dialogue, endDialogueAction));
     }
 
-    private IEnumerator StartDialogueCoroutine(DialogueSo dialogue)
+    private IEnumerator StartDialogueCoroutine(DialogueSo dialogue, System.Action endDialogueAction = null)
     {
         foreach (SentenceClass sentence in dialogue.Dialogue)
         {
@@ -82,9 +82,9 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        AppManager.Instance.PlayerManager.SetPlayerInteractable(true);
         _dialoguePanel.SetActive(false);
-        
+        AppManager.Instance.PlayerManager.SetPlayerInteractable(true);
+        endDialogueAction?.Invoke();
         _dialogueCoroutine = null;
     }
 

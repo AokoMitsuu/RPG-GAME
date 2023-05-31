@@ -22,7 +22,10 @@ public class PlayerInteraction : MonoBehaviour
             if (collision.TryGetComponent(out PNJ pnj))
             {
                 pnj.StartInteraction();
-                return;
+            }
+            else if (collision.TryGetComponent(out FightFix fightFix))
+            {
+                fightFix.StartInteraction();
             }
         }
     }

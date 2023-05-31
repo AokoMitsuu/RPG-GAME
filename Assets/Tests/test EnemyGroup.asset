@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc199d268d672d3428f144e7a15b66fb, type: 3}
+  m_Name: test EnemyGroup
+  m_EditorClassIdentifier: 
+  Enemy:
+  - Enemy: {fileID: 0}
+    MinLevel: 0
+    MaxLevel: 0
+  - Enemy: {fileID: 0}
+    MinLevel: 0
+    MaxLevel: 0
+  - Enemy: {fileID: 0}
+    MinLevel: 0
+    MaxLevel: 0
+  - Enemy: {fileID: 0}
+    MinLevel: 0
+    MaxLevel: 0
+  - Enemy: {fileID: 11400000, guid: 42e5329c57aa2b04b9dd773f3f7595a1, type: 2}
+    MinLevel: 10
+    MaxLevel: 10
+  - Enemy: {fileID: 0}
+    MinLevel: 0
+    MaxLevel: 0
+  - Enemy: {fileID: 0}
+    MinLevel: 0
+    MaxLevel: 0
+  - Enemy: {fileID: 0}
+    MinLevel: 0
+    MaxLevel: 0
+  - Enemy: {fileID: 0}
+    MinLevel: 0
+    MaxLevel: 0

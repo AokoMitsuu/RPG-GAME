@@ -25,6 +25,8 @@ public class WinFightState : State
         _machine.GetBlackboardVariable<GameObject>("fightUIGameObject").SetActive(false);
         AppManager.Instance.FightManager.ClearPopups();
         
+        _machine.GetBlackboardVariable<System.Action>("callbackEndFight")?.Invoke();
+        
         _machine.SwitchState(_machine.NoneFightState);
     }
 

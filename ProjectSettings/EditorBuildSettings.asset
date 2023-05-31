@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: daccad90682409e41bb61f9c9a606c8b
+  - enabled: 1
+    path: Assets/Tests/test mob fix.unity
+    guid: 8dc16e08d881d564581b1cbced0319b8
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: b36beab0f75060f498cbfd09055cb90e, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 1c52abc20fdbd314aab4a5af4f44bad9, type: 2}
