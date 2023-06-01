@@ -9,17 +9,7 @@ public class FightFix : MonoBehaviour
     [SerializeField] private Sprite _fightBackground;
     [SerializeField] private ZoneSo.EnemyDataZone _enemyDataZone;
     [SerializeField] private QuestSo _quest;
-
-    private void OnEnable()
-    {
-        AppManager.Instance.QuestManager.OnQuestUpdate += ActiveIfQuestActive;
-    }
-
-    private void Start()
-    {
-        ActiveIfQuestActive();
-    }
-
+    
     public void StartInteraction()
     {
         System.Action afterFight = () =>
@@ -35,8 +25,5 @@ public class FightFix : MonoBehaviour
         AppManager.Instance.DialogueManager.StartDialogue(_dialogueSo, startFight);
     }
 
-    public void ActiveIfQuestActive()
-    {
-        gameObject.SetActive(AppManager.Instance.QuestManager.IsQuestActif(_quest));
-    }
+
 }

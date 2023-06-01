@@ -2440,6 +2440,10 @@ PrefabInstance:
       propertyPath: _quest
       value: 
       objectReference: {fileID: 11400000, guid: 09b70ebb5a316444ba92019ae5e373c6, type: 2}
+    - target: {fileID: 6944703613325424799, guid: 64db78a2abac12440998d2a682d3d24e, type: 3}
+      propertyPath: _quest
+      value: 
+      objectReference: {fileID: 11400000, guid: 09b70ebb5a316444ba92019ae5e373c6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64db78a2abac12440998d2a682d3d24e, type: 3}
 --- !u!1 &1310189525
@@ -2565,6 +2569,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FightFix
       objectReference: {fileID: 0}
+    - target: {fileID: 6944703613325424799, guid: 64db78a2abac12440998d2a682d3d24e, type: 3}
+      propertyPath: _quest
+      value: 
+      objectReference: {fileID: 11400000, guid: f1071311e1ef75f4ebe9766933914eb0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64db78a2abac12440998d2a682d3d24e, type: 3}
 --- !u!1 &1641705886
