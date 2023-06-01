@@ -16,6 +16,7 @@ public class AppManager : MonoBehaviour
     public SceneAppManager SceneAppManager { get; private set; }
     public CameraManager CameraManager { get; private set; }
     public DialogueManager DialogueManager { get; private set; }
+    public QuestManager QuestManager { get; private set; }
 
     [SerializeField] private GameObject _fightManagerGo;
     [SerializeField] private GameObject _mapManagerGo;
@@ -24,6 +25,7 @@ public class AppManager : MonoBehaviour
     [SerializeField] private GameObject _sceneAppManagerGo;
     [SerializeField] private GameObject _cameraManagerGo;
     [SerializeField] private GameObject _dialogueManagerGo;
+    [SerializeField] private GameObject _questManager;
     
     [SerializeField] private string _initialScene;
     [SerializeField] private string firstScene;
@@ -60,8 +62,11 @@ public class AppManager : MonoBehaviour
         GameObject cameraManagerTmp = Instantiate(_cameraManagerGo, transform);
         CameraManager = cameraManagerTmp.GetComponent<CameraManager>();
         
-        GameObject dialogueMangerTmp = Instantiate(_dialogueManagerGo, transform);
-        DialogueManager = dialogueMangerTmp.GetComponent<DialogueManager>();
+        GameObject dialogueManagerTmp = Instantiate(_dialogueManagerGo, transform);
+        DialogueManager = dialogueManagerTmp.GetComponent<DialogueManager>();
+        
+        GameObject questMangerTmp = Instantiate(_questManager, transform);
+        QuestManager = questMangerTmp.GetComponent<QuestManager>();
         
         DontDestroyOnLoad(this.gameObject);
         

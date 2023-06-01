@@ -17,19 +17,19 @@ MonoBehaviour:
     Image: {fileID: 0}
     RectTransform: {fileID: 0}
     EntityFightUI: {fileID: 0}
-    _currentLifePoint: 22
-    _currentManaPoint: 7
-    _level: 6
-    _xp: 216
+    _currentLifePoint: 41
+    _currentManaPoint: 31
+    _level: 15
+    _xp: 3375
     _heroClassIndex: 0
   - GO: {fileID: 0}
     Image: {fileID: 0}
     RectTransform: {fileID: 0}
     EntityFightUI: {fileID: 0}
-    _currentLifePoint: 22
-    _currentManaPoint: 9
-    _level: 6
-    _xp: 216
+    _currentLifePoint: 41
+    _currentManaPoint: 41
+    _level: 15
+    _xp: 3375
     _heroClassIndex: 1
   _healInventory: []
   _reviveInInventory:
@@ -45,5 +45,6 @@ MonoBehaviour:
     _itemType: 1
     _animatorController: {fileID: 9100000, guid: 501505066cb5b4f4b99f0fb8f5dce9ac, type: 2}
     _heal: 1
-  _lastPosition: {x: 0.5, y: 1.5, z: -1}
+  _lastPosition: {x: 3.5, y: 1.5, z: -1}
   _lastSceneName: Level1
+  _questIndex: 2

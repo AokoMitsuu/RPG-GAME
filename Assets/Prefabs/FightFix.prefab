@@ -100,12 +100,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dialogueSo: {fileID: 11400000, guid: 5dd14595a796d7943a94a767c130dfbc, type: 2}
   _fightBackground: {fileID: 122895939, guid: 1e2833dbf4fdc3b478f8d4c7dad31d40, type: 3}
-  enemyDataZone:
+  _enemyDataZone:
     EnemyGroup: {fileID: 11400000, guid: 718cfa0935047474fb89385e0e738bc7, type: 2}
     Rate: 0
     FightTransition:
       Material: {fileID: 2100000, guid: 20c59150db3e39642adad5cff33ab8c5, type: 2}
       Duration: 1
+  _quest: {fileID: 11400000, guid: f1071311e1ef75f4ebe9766933914eb0, type: 2}
 --- !u!61 &1155752930815902060
 BoxCollider2D:
   m_ObjectHideFlags: 0

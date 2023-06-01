@@ -21,6 +21,9 @@ public class PlayerSo : ScriptableObject
     
     public string LastSceneName => _lastSceneName;
     [SerializeField] private string _lastSceneName;
+    
+    public int QuestIndex => _questIndex;
+    [SerializeField] private int _questIndex;
 
     public void Init()
     {
@@ -65,5 +68,10 @@ public class PlayerSo : ScriptableObject
     public void SetLastSceneName(string lastSceneName)
     {
         _lastSceneName = lastSceneName;
+    }
+
+    public void NextQuest()
+    {
+        _questIndex += 1;
     }
 }
